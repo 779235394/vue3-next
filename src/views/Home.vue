@@ -24,10 +24,10 @@ export default defineComponent({
     }
   },
   setup: ()=> {
-    const store = useStore()
-    const router = useRouter()
+    const store = useStore();
+    const router = useRouter();
     const count = computed(() => {
-         return store.state.textModules.count
+      return store.state.textModules.count;
     });
     return {
       count,

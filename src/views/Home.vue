@@ -23,7 +23,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup: () => {
+  setup: ()=> {
     const store = useStore();
     const router = useRouter();
     const count = computed(() => {

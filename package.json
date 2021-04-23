@@ -21,6 +21,7 @@
   "dependencies": {
     "@types/node": "^14.14.41",
     "element-plus": "^1.0.2-beta.40",
+    "husky": "^6.0.0",
     "less": "^4.1.1",
     "sass": "^1.32.8",
     "vue": "^3.0.5",

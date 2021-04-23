@@ -17,12 +17,6 @@ import {useRouter} from 'vue-router';
 
 export default defineComponent({
   name: 'Home',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
   setup: ()=> {
     const store = useStore();
     const router = useRouter();

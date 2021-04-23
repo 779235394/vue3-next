@@ -4,11 +4,17 @@
  * @desc:
  */
 
-export const BaseRouter : any [] = [
+const BaseRouter: any = [
   {
-    path: '/Home',
+    path: '/',
     name: 'Home',
-    component: ()=> import('../views/Home.vue')
+    component: () => import('../../views/Home.vue')
+  },
+  {
+    path: '/Text',
+    name: 'Text',
+    component: () => import('../../views/Text.vue')
   }
 ];
 
+export default BaseRouter;

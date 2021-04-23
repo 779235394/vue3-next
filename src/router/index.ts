@@ -5,20 +5,19 @@
  */
 import {createRouter, createWebHistory} from 'vue-router';
 
-const router =createRouter({
+const modules = import.meta.globEager('./modules/**/*.ts');
+const routeModuleList: any[] = [];
+
+Object.keys(modules).forEach((key) => {
+  const mod = modules[key].default || {};
+  routeModuleList.push(...mod);
+});
+
+const router = createRouter({
   history: createWebHistory(),
   strict: true,
   routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: ()=> import('../views/Home.vue')
-    },
-    {
-      path: '/Text',
-      name: 'Text',
-      component: ()=> import('../views/Text.vue')
-    }
+    ...routeModuleList
   ]
 });
 

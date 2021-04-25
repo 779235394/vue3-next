@@ -7,8 +7,8 @@
 const BaseRouter: any = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('../../views/Home.vue')
+    name: 'Login',
+    component: () => import('../../views/Login/index.vue')
   },
   {
     path: '/Text',
@@ -16,9 +16,9 @@ const BaseRouter: any = [
     component: () => import('../../views/Text.vue')
   },
   {
-    path: '/Login',
-    name: 'Login',
-    component: () => import('../../views/login/index.vue')
+    path: '/Home',
+    name: 'Home',
+    component: () => import('../../views/Home.vue')
   }
 ];
 

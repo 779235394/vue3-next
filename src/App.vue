@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png"/>
+  <!--  <img alt="Vue logo" src="./assets/logo.png"/>-->
   <RouterView/>
 </template>
 
@@ -18,7 +18,11 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
 </style>

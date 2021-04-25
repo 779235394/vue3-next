@@ -31,7 +31,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 a {
   color: #42b983;
 }

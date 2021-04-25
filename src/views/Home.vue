@@ -4,7 +4,6 @@
 * @desc:
 */
 <template>
-  <h1>{{ msg }}</h1>
   <h1>count: {{ count }}</h1>
   <el-button type="success" @click="addCount">+1</el-button>
   <el-button type="success" @click="handJump">路由跳转</el-button>

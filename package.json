@@ -23,6 +23,7 @@
     "element-plus": "^1.0.2-beta.40",
     "husky": "^6.0.0",
     "less": "^4.1.1",
+    "particles.vue3": "^1.9.3",
     "sass": "^1.32.8",
     "vue": "^3.0.5",
     "vue-router": "4",

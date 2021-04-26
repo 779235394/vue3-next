@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: huangzihong
+ * @Date: 2021-04-26 11:02:43
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-04-26 11:13:47
+ */
 /**
  * @Author: junlan.he
  * @date: 2021/4/25
@@ -7,8 +14,8 @@ import {reactive} from 'vue';
 
 export const ParticlesOptions: Object = reactive(
     {
-      fpsLimit: 60,
-      interactivity: {
+           fpsLimit: 60,
+           interactivity: {
         detectsOn: 'canvas',
         events: {
           onClick: {

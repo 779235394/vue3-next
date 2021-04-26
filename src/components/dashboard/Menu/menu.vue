@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:33:52
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 17:04:42
+ * @LastEditTime: 2021-04-26 18:09:32
 -->
 <template>
     <el-menu
@@ -41,7 +41,7 @@ export default defineComponent({
       return router.options.routes
     })
     onMounted(() => {
-      console.log(router.currentRoute.value.path)
+      console.log(permission_routes)
     })
     return {
       router,

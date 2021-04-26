@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 17:25:02
+ * @LastEditTime: 2021-04-26 18:44:48
 -->
 <template>
   <div v-if="!item.hidden">
@@ -19,10 +19,10 @@
           :index="resolvePath(onlyOneChild.path)"
           :class="{ 'submenu-title-noDropdown': !isNest }"
         >
-          <item
-            :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-            :title="onlyOneChild.meta.title"
-          />
+          <template #title v-if="item.meta">
+            <i :class="[item.meta.icon, 'sub-el-icon']" />
+            <span>{{ item.meta.title }}</span>
+          </template>
         </el-menu-item>
       </app-link>
     </template>
@@ -50,12 +50,23 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs } from 'vue'
+import { isExternal } from '@/utils/validate'
+import AppLink from './Link.vue'
 export default defineComponent({
   name: 'SidebarItem',
+  components: { AppLink },
   props: {
     item: {
       type: Object,
       default: () => {},
+    },
+    isNest: {
+      type: Boolean,
+      default: false,
+    },
+    basePath: {
+      type: String,
+      default: '',
     },
   },
   setup(props) {
@@ -68,14 +79,16 @@ export default defineComponent({
      * @return {hasOneShowingChild} asda
     */
     function hasOneShowingChild(children = [], parent) {
-      const showingChildren = children.filter((item) => {
-        if (props.item.hidden) {
-          return false
+      const showingChildren = children.filter((childrenItem:any) => {
+        let bool = false
+        if (childrenItem && childrenItem.hidden) {
+          bool = false
         } else {
           // Temp set(will be used if only has one showing child)
-          state.onlyOneChild = item
-          return true
+          state.onlyOneChild = childrenItem
+          bool = true
         }
+        return bool
       })
       if (showingChildren.length === 1) {
         return true
@@ -85,6 +98,7 @@ export default defineComponent({
         state.onlyOneChild = { ...parent, path: '', noShowingChildren: true }
         return true
       }
+
       return false
     }
     /**
@@ -92,11 +106,16 @@ export default defineComponent({
      * @return {resolvePath}
     */
     function resolvePath(routePath) {
+      console.log(routePath)
+      if (isExternal(routePath)) {
+        return routePath
+      }
+      if (isExternal(props.basePath)) {
+        return props.basePath
+      }
       return routePath
     }
-    onMounted(() => {
-      console.log(props.item)
-    })
+    onMounted(() => {})
     return {
       resolvePath,
       hasOneShowingChild,

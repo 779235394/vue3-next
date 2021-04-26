@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:35:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 17:08:22
+ * @LastEditTime: 2021-04-26 18:46:22
  */
 /**
  * @Author: junlan.he
@@ -34,12 +34,18 @@ const BaseRouter: any = [
       name: 'Home',
       component: () => import('../../views/Home.vue'),
       meta: { title: '测试子页', noCache: true },
+    }, {
+      path: 'Home2',
+      name: 'Home2',
+      component: () => import('../../views/Home.vue'),
+      meta: { title: '测试子页2', noCache: true },
     }],
   },
   {
-    path: '/Home',
-    name: 'Home',
+    path: '/Home3',
+    name: 'Home3',
     component: () => import('../../views/Home.vue'),
+    meta: { title: 'home', noCache: true },
   },
 ]
 

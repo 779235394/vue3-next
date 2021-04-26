@@ -14,10 +14,10 @@ import {reactive} from 'vue';
 
 export const ParticlesOptions: Object = reactive(
     {
-           fpsLimit: 60,
-           interactivity: {
+      fpsLimit: 60,
+      interactivity: {
 
-        detectsOn: 'canvas', 
+        detectsOn: 'canvas',
         events: {
           onClick: {
             enable: true,

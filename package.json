@@ -14,7 +14,8 @@
   },
   "lint-staged": {
     "*.{.ts,.tsx,.vue}": [
-      "npm run lint",
+      "eslint --cache --fix",
+      "prettier --write",
       "git add"
     ]
   },

@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:35:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 16:33:59
+ * @LastEditTime: 2021-04-26 17:08:22
  */
 /**
  * @Author: junlan.he
@@ -29,6 +29,12 @@ const BaseRouter: any = [
     name: 'Text',
     component: () => import('../../views/Text.vue'),
     meta: { title: '测试页', noCache: true },
+    children: [{
+      path: 'Home',
+      name: 'Home',
+      component: () => import('../../views/Home.vue'),
+      meta: { title: '测试子页', noCache: true },
+    }],
   },
   {
     path: '/Home',

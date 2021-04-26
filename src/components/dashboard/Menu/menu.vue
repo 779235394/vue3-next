@@ -3,15 +3,15 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:33:52
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 16:20:31
+ * @LastEditTime: 2021-04-26 17:04:42
 -->
 <template>
     <el-menu
-    :default-active="activeMenu"
-    :collapse="isCollapse"
-    :unique-opened="false"
-    :collapse-transition="false"
-    mode="vertical"
+      :default-active="activeMenu"
+      :collapse="isCollapse"
+      :unique-opened="false"
+      :collapse-transition="false"
+      mode="vertical"
     >
         <sidebar-item
             v-for="route in permission_routes"
@@ -33,7 +33,7 @@ export default defineComponent({
   },
   setup: () => {
     const state = reactive({
-      isCollapse: true,
+      isCollapse: false,
     })
     const router = useRouter()
     const activeMenu = computed(() => { return router.currentRoute.value.path })
@@ -52,3 +52,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.el-menu {
+  width: 100%;
+}
+</style>

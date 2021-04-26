@@ -1,3 +1,10 @@
+/*
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2021-04-25 10:48:20
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-04-26 17:18:21
+ */
 module.exports = {
   printWidth: 200,
   tabWidth: 2,
@@ -13,7 +20,7 @@ module.exports = {
   arrowParens: 'always',
   insertPragma: false,
   requirePragma: false,
-  proseWrap: 'never',
+  proseWrap: 'preserve',
   htmlWhitespaceSensitivity: 'strict',
   endOfLine: 'lf',
 }

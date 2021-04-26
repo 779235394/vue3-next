@@ -10,7 +10,7 @@
  * @date: 2021/4/25
  * @desc:
  */
-import {reactive} from 'vue';
+import { reactive } from 'vue'
 
 export const ParticlesOptions: Object = reactive({
   fpsLimit: 60,
@@ -19,43 +19,43 @@ export const ParticlesOptions: Object = reactive({
     events: {
       onClick: {
         enable: true,
-        mode: ['push', 'grab']
+        mode: ['push', 'grab'],
       },
       onHover: {
         enable: true,
-        mode: ['grab']
+        mode: ['grab'],
       },
-      resize: true
+      resize: true,
     },
     modes: {
       bubble: {
         distance: 400,
         duration: 2,
         opacity: 0.8,
-        size: 40
+        size: 40,
       },
       push: {
-        quantity: 1
+        quantity: 1,
       },
       attract: {
         distance: 200,
-        duration: 0.4
-      }
-    }
+        duration: 0.4,
+      },
+    },
   },
   particles: {
     color: {
-      value: '#ffffff'
+      value: '#ffffff',
     },
     links: {
       color: '#ffffff',
       distance: 150,
       enable: true,
       opacity: 0.5,
-      width: 1
+      width: 1,
     },
     collisions: {
-      enable: true
+      enable: true,
     },
     move: {
       direction: 'none',
@@ -63,25 +63,25 @@ export const ParticlesOptions: Object = reactive({
       outMode: 'bounce',
       random: false,
       speed: 1,
-      straight: false
+      straight: false,
     },
     number: {
       density: {
         enable: true,
-        value_area: 400
+        value_area: 400,
       },
-      value: 45
+      value: 45,
     },
     opacity: {
-      value: 0.5
+      value: 0.5,
     },
     shape: {
-      type: 'circle'
+      type: 'circle',
     },
     size: {
       random: true,
-      value: 3
-    }
+      value: 3,
+    },
   },
-  detectRetina: true
-});
+  detectRetina: true,
+})

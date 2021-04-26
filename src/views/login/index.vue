@@ -8,18 +8,18 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
-import {ParticlesOptions} from './LoginData';
+import { defineComponent } from 'vue'
+import { ParticlesOptions } from './LoginData'
 
 export default defineComponent({
-  name: 'index',
+  name: 'Index',
 
   setup: () => {
     return {
-      ParticlesOptions
-    };
-  }
-});
+      ParticlesOptions,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>

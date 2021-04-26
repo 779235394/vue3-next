@@ -15,23 +15,23 @@ const BaseRouter: any = [
   {
     path: '/',
     name: 'Login',
-    component: () => import('../../views/Login/index.vue')
+    component: () => import('../../views/Login/index.vue'),
   },
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: () => import('../../views/dashboard/index.vue')
+    component: () => import('../../views/dashboard/index.vue'),
   },
   {
     path: '/Text',
     name: 'Text',
-    component: () => import('../../views/Text.vue')
+    component: () => import('../../views/Text.vue'),
   },
   {
     path: '/Home',
     name: 'Home',
-    component: () => import('../../views/Home.vue')
-  }
-];
+    component: () => import('../../views/Home.vue'),
+  },
+]
 
-export default BaseRouter;
+export default BaseRouter

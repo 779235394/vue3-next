@@ -3,11 +3,11 @@
  * @date: 2021/4/14
  * @desc:
  */
-import {createStore} from 'vuex';
-import textModules from './modules/test';
+import { createStore } from 'vuex'
+import textModules from './modules/test'
 
 export const store = createStore({
   modules: {
-    textModules
-  }
-});
+    textModules,
+  },
+})

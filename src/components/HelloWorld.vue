@@ -5,27 +5,27 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, computed} from 'vue';
-import {useStore} from 'vuex';
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
 export default defineComponent({
   name: 'HelloWorld',
   props: {
     msg: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup: () => {
-    const store = useStore();
+    const store = useStore()
     const count = computed(() => {
-      return store.state.textModules.count;
-    });
+      return store.state.textModules.count
+    })
     return {
       count,
-      addCount: ()=>store.dispatch('textModules/set_count')
-    };
-  }
-});
+      addCount: () => store.dispatch('textModules/set_count'),
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>

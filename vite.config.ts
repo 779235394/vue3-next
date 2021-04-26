@@ -1,26 +1,33 @@
-import {defineConfig} from 'vite';
-import path from 'path';
-import vue from '@vitejs/plugin-vue';
+/*
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2021-04-26 10:35:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-04-26 15:49:12
+ */
+import { defineConfig } from 'vite'
+import path from 'path'
+import vue from '@vitejs/plugin-vue'
 
 /**
  * @param {dir} dir is path
  * @return {dir} dir is path
  */
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return path.join(__dirname, dir)
 }
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
-    alias: {'@': resolve('src')}
+    alias: { '@': resolve('src') },
   },
   css: {
     preprocessorOptions: {
       scss: {
         javascriptEnabled: true,
-        additionalData: '@import "@/styles/BaseStyle.scss";'
-      }
-    }
-  }
-});
+        additionalData: '@import "@/styles/BaseStyle.scss";',
+      },
+    },
+  },
+})

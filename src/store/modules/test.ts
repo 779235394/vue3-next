@@ -6,16 +6,16 @@
 export default {
   namespaced: true,
   state: {
-    count: 10
+    count: 10,
   },
   mutations: {
     SET_COUNT(state: any) {
-      state.count++;
-    }
+      state.count++
+    },
   },
   actions: {
     set_count(ctx: any) {
-      ctx.commit('SET_COUNT');
-    }
-  }
-};
+      ctx.commit('SET_COUNT')
+    },
+  },
+}

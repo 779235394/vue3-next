@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 14:21:22
+ * @LastEditTime: 2021-04-26 15:47:41
 -->
 <template>
   <el-container class="app-wrapper">
@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, toRefs } from 'vue'
 import Menu from '@/components/dashboard/menu.vue'
-import { state } from './index'
+import { state } from './index.ts'
 
 export default defineComponent({
   name: 'Home',

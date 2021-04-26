@@ -10,25 +10,25 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, computed} from 'vue';
-import {useStore} from 'vuex';
-import {useRouter} from 'vue-router';
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Home',
-  setup: ()=> {
-    const store = useStore();
-    const router = useRouter();
+  setup: () => {
+    const store = useStore()
+    const router = useRouter()
     const count = computed(() => {
-      return store.state.textModules.count;
-    });
+      return store.state.textModules.count
+    })
     return {
       count,
       addCount: () => store.dispatch('textModules/set_count'),
-      handJump: () => router.push({path: 'Text'})
-    };
-  }
-});
+      handJump: () => router.push({ path: 'Text' }),
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>

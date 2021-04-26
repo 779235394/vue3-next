@@ -9,21 +9,20 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
-import {useRouter} from 'vue-router';
+import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Text',
 
-  setup: ()=>{
-    const router = useRouter();
+  setup: () => {
+    const router = useRouter()
     return {
-      router
-    };
-  }
+      router,
+    }
+  },
 
-
-});
+})
 </script>
 
 <style scoped>

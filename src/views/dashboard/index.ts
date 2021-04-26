@@ -3,13 +3,10 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:45:24
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 15:45:50
+ * @LastEditTime: 2021-04-26 16:05:26
  */
-import { defineComponent } from 'vue'
+import { reactive } from 'vue'
 
-export default defineComponent({
-  name: 'Home',
-  setup: () => {
-    return {}
-  },
+export const state: any = reactive({
+  text: 111,
 })

@@ -5,7 +5,7 @@
  * @LastEditors: huangzihong
  * @LastEditTime: 2021-04-26 12:00:25
  */
-import {defineComponent, computed, watch} from 'vue';
+import {defineComponent, computed} from 'vue';
 
 export default defineComponent({
   name: 'Home',

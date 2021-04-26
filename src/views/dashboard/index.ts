@@ -5,11 +5,11 @@
  * @LastEditors: huangzihong
  * @LastEditTime: 2021-04-26 11:57:55
  */
-import { defineComponent, computed } from 'vue'
+import {defineComponent, computed} from 'vue';
 
 export default defineComponent({
   name: 'Home',
   setup: () => {
-    return {}
+    return {};
   }
-})
+});

@@ -10,7 +10,7 @@
  * @date: 2021/4/25
  * @desc:
  */
-import { reactive } from 'vue'
+import {reactive} from 'vue';
 
 export const ParticlesOptions: Object = reactive({
   fpsLimit: 60,
@@ -84,4 +84,4 @@ export const ParticlesOptions: Object = reactive({
     }
   },
   detectRetina: true
-})
+});

@@ -1,5 +1,5 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: huangzihong
  * @Date: 2021-04-26 11:02:43
  * @LastEditors: huangzihong
@@ -16,6 +16,7 @@ export const ParticlesOptions: Object = reactive(
     {
            fpsLimit: 60,
            interactivity: {
+
         detectsOn: 'canvas',
         events: {
           onClick: {

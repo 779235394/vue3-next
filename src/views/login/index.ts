@@ -85,3 +85,9 @@ export const ParticlesOptions: Object = reactive({
   },
   detectRetina: true,
 })
+
+export const ruleForm: any = reactive({
+  account: '',
+  password: '',
+})
+

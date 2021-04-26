@@ -1,5 +1,5 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: huangzihong
  * @Date: 2021-04-25 11:32:49
  * @LastEditors: huangzihong
@@ -12,7 +12,7 @@ import 'element-plus/lib/theme-chalk/index.css';
 import ElementPlus from 'element-plus';
 import router from './router';
 import Particles from 'particles.vue3';
-import '@/styles/index.scss'
+import '@/styles/index.scss';
 const app = createApp(App);
 app.use(Particles);
 app.use(ElementPlus);

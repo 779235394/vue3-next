@@ -1,5 +1,5 @@
 <!--
- * @Descripttion: 
+ * @Descripttion:
  * @Author: huangzihong
  * @Date: 2021-04-26 10:35:04
  * @LastEditors: huangzihong
@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+import {defineComponent} from 'vue';
 
-  export default defineComponent({
-    name: 'App',
-    components: {}
-  })
+export default defineComponent({
+  name: 'App',
+  components: {}
+});
 </script>

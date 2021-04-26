@@ -1,5 +1,5 @@
 <!--
- * @Descripttion: 
+ * @Descripttion:
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-  import './index.ts'
+import './index.ts';
 </script>
 
 <style lang="sass">

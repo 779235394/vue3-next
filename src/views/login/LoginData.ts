@@ -16,7 +16,6 @@ export const ParticlesOptions: Object = reactive(
     {
       fpsLimit: 60,
       interactivity: {
-
         detectsOn: 'canvas',
         events: {
           onClick: {

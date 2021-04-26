@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-04-26 17:18:21
  */
 module.exports = {
-  printWidth: 100,
+  printWidth: 200,
   tabWidth: 2,
   useTabs: false,
   semi: false, // 未尾逗号

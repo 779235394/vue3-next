@@ -109,6 +109,7 @@ module.exports = {
       },
     ],
     'new-parens': 2,
+    'max-len': ['error', { 'code': 200 }],
     'no-array-constructor': 2,
     'no-caller': 2,
     'no-class-assign': 2,

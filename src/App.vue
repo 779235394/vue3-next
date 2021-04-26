@@ -1,28 +1,20 @@
+<!--
+ * @Descripttion: 
+ * @Author: huangzihong
+ * @Date: 2021-04-26 10:35:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-04-26 10:42:45
+-->
 <template>
   <!--  <img alt="Vue logo" src="./assets/logo.png"/>-->
-  <RouterView/>
+  <RouterView />
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
+  import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'App',
-  components: {}
-});
+  export default defineComponent({
+    name: 'App',
+    components: {}
+  })
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-</style>

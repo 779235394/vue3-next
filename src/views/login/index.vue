@@ -23,6 +23,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
 .particles {
   width: 100%;
   height: 100vh;

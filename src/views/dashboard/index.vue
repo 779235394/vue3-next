@@ -3,12 +3,13 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 10:58:27
+ * @LastEditTime: 2021-04-26 14:21:22
 -->
-/** * @Author: junlan.he * @date: 2021/4/23 * @desc: */
 <template>
   <el-container class="app-wrapper">
-    <el-aside width="200px">Aside</el-aside>
+    <el-aside width="200px">
+      <Menu></Menu>
+    </el-aside>
     <el-container>
       <el-header>Header</el-header>
       <el-main>Main</el-main>
@@ -17,7 +18,24 @@
 </template>
 
 <script lang="ts">
-import './index.ts';
+import { defineComponent, onMounted, toRefs } from 'vue'
+import Menu from '@/components/dashboard/menu.vue'
+import { state } from './index'
+
+export default defineComponent({
+  name: 'Home',
+  components: {
+    Menu,
+  },
+  setup: () => {
+    onMounted(() => {
+      console.log(state.text)
+    })
+    return {
+      ...toRefs(state),
+    }
+  },
+})
 </script>
 
 <style lang="sass">

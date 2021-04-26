@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 18:44:48
+ * @LastEditTime: 2021-04-26 19:15:43
 -->
 <template>
   <div v-if="!item.hidden">
@@ -38,10 +38,10 @@
       </template>
       <sidebar-item
         v-for="child in item.children"
-        :key="child.path"
+        :key="item.path  + '/' +  child.path"
         :is-nest="true"
         :item="child"
-        :base-path="resolvePath(child.path)"
+        :base-path="resolvePath(item.path + '/' + child.path)"
         class="nest-menu"
       />
     </el-submenu>
@@ -74,9 +74,9 @@ export default defineComponent({
       onlyOneChild: null,
     })
     /**
-     * @param {children} children is aa
-     * @param {parent} parent is aaa
-     * @return {hasOneShowingChild} asda
+     * @param {children} children
+     * @param {parent} parent
+     * @return {hasOneShowingChild}
     */
     function hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter((childrenItem:any) => {
@@ -95,7 +95,8 @@ export default defineComponent({
       }
       // Show parent if there are no child router to display
       if (showingChildren.length === 0) {
-        state.onlyOneChild = { ...parent, path: '', noShowingChildren: true }
+        state.onlyOneChild = { ...parent, noShowingChildren: true }
+        console.log(state.onlyOneChild)
         return true
       }
 

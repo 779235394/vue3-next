@@ -12,14 +12,16 @@
     </el-aside>
     <el-container>
       <el-header>Header</el-header>
-      <el-main>Main</el-main>
+      <el-main>
+        <RouterView />
+      </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, toRefs } from 'vue'
-import Menu from '@/components/dashboard/Menu/menu.vue'
+import Menu from '@/components/layout/Menu/menu.vue'
 import { state } from './index.ts'
 
 export default defineComponent({

@@ -13,11 +13,24 @@ Object.keys(modules).forEach((key) => {
   routeModuleList.push(...mod)
 })
 
-const router = createRouter({
+const router:any = createRouter({
   history: createWebHistory(),
   strict: true,
   routes: [
-    ...routeModuleList,
+    {
+      path: '/',
+      name: 'layout',
+      component: () => import('../views/layout/index.vue'),
+      redirect: '/Home',
+      children: [
+        ...routeModuleList,
+      ],
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/Login/login.vue'),
+    },
   ],
 })
 

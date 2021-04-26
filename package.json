@@ -9,12 +9,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint"
     }
   },
   "lint-staged": {
     "*.{.ts,.tsx,.vue}": [
-      "npm run lint",
+      "eslint --cache --fix",
+      "prettier --write",
       "git add"
     ]
   },

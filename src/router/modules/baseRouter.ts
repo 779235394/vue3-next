@@ -15,7 +15,7 @@ const BaseRouter: any = [
   {
     path: '/',
     name: 'Login',
-    component: () => import('../../views/Login/index.vue'),
+    component: () => import('../../views/Login/login.vue'),
     hidden: true,
   },
   {

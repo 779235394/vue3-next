@@ -18,17 +18,13 @@
 </template>
 
 <script>
-import { defineComponent, onMounted } from 'vue'
-import { ParticlesOptions, ruleForm } from './index'
+import { defineComponent } from 'vue'
+import { ruleForm, ParticlesOptions } from './login'
 
 export default defineComponent({
-  name: 'Index',
+  name: 'Login',
 
   setup: () => {
-    onMounted(() => {
-      console.log('222')
-    })
-
     return {
       ParticlesOptions,
       ruleFormModel: ruleForm,
@@ -38,6 +34,6 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-  @import "./index.scss";
+  @import "./login.scss";
 
 </style>

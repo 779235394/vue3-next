@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "npm run dev",
-    "lint": "eslint \"{src}/**/*.{vue,ts,tsx}\" --fix"
+    "serve": "vite preview",
+    "lint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix"
   },
   "husky": {
     "hooks": {

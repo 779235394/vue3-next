@@ -13,8 +13,8 @@
     }
   },
   "lint-staged": {
-    "*.{.ts,.tsx}": [
-      "eslint --fix",
+    "*.{.ts,.tsx,.vue}": [
+      "lint",
       "git add"
     ]
   },

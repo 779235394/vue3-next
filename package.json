@@ -13,7 +13,7 @@
     }
   },
   "lint-staged": {
-    "*.{.ts,.tsx,.vue}": [
+    "src/**/*.{ts,tsx,vue}": [
       "eslint --cache --fix",
       "prettier --write",
       "git add"

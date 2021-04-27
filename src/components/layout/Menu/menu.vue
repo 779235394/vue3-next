@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:33:52
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 10:54:41
+ * @LastEditTime: 2021-04-27 16:34:40
 -->
 <template>
     <el-menu
@@ -26,33 +26,32 @@
 import { defineComponent, onMounted, toRefs, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import sidebarItem from './sidebarItem.vue'
+import { useStore } from 'vuex'
 export default defineComponent({
   name: 'Home',
   components: {
     sidebarItem,
   },
   setup: () => {
-    const state = reactive({
-      isCollapse: false,
-    })
+    const state = reactive({})
+    const store = useStore()
     const router = useRouter()
     const activeMenu = computed(() => { return router.currentRoute.value.path })
     const permission_routes = computed(() => {
-      console.log(router.options.routes)
       const routeList:any = []
       router.options.routes.forEach((item) => {
         if (item.path == '/') routeList.push(item.children)
       })
-      console.log(routeList)
       return routeList[0]
     })
-    onMounted(() => {
-      console.log(permission_routes)
-    })
+    const isCollapse = computed(() => !store.getters['layout/sidebar'].opened)
+
+    onMounted(() => {})
     return {
       router,
       activeMenu,
       permission_routes,
+      isCollapse,
       ...toRefs(state),
     }
   },

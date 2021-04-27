@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 10:46:22
+ * @LastEditTime: 2021-04-27 16:34:51
 -->
 <template>
   <div v-if="!item.hidden">
@@ -96,7 +96,6 @@ export default defineComponent({
       // Show parent if there are no child router to display
       if (showingChildren.length === 0) {
         state.onlyOneChild = { ...parent, noShowingChildren: true }
-        console.log(state.onlyOneChild)
         return true
       }
 
@@ -107,7 +106,6 @@ export default defineComponent({
      * @return {resolvePath}
     */
     function resolvePath(routePath) {
-      console.log(routePath)
       if (isExternal(routePath)) {
         return routePath
       }
@@ -117,7 +115,6 @@ export default defineComponent({
       return routePath
     }
     onMounted(() => {
-      console.log(props.item)
     })
     return {
       resolvePath,

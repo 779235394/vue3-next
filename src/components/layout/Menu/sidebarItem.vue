@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 19:15:43
+ * @LastEditTime: 2021-04-27 10:46:22
 -->
 <template>
   <div v-if="!item.hidden">
@@ -116,7 +116,9 @@ export default defineComponent({
       }
       return routePath
     }
-    onMounted(() => {})
+    onMounted(() => {
+      console.log(props.item)
+    })
     return {
       resolvePath,
       hasOneShowingChild,

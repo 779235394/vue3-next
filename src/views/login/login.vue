@@ -5,8 +5,11 @@
 */
 <template>
   <Particles id='tsparticles' :options='ParticlesOptions' class='particles' />
-  <div class='form-box'>
-    <el-form :model='ruleFormModel' label-width='auto' status-icon ref='ruleForm' class='demo-ruleForm'>
+  <div class='login-container'>
+    <el-form :model='ruleFormModel' label-width='left'  status-icon ref='ruleForm' class='login-form'>
+      <div class="title-container">
+        <h3 class="title">Login Form</h3>
+      </div>
       <el-form-item label='账号' prop='pass'>
         <el-input type='text' prefix-icon='el-icon-user' v-model='ruleFormModel.account' autocomplete='off'></el-input>
       </el-form-item>
@@ -17,6 +20,7 @@
           v-model='ruleFormModel.password'
           autocomplete='off'></el-input>
       </el-form-item>
+      <el-button  type="primary" style="width:100%;margin-bottom:30px;">Login</el-button>
     </el-form>
   </div>
 </template>

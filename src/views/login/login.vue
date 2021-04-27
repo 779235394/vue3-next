@@ -6,9 +6,9 @@
 <template>
   <Particles id='tsparticles' :options='ParticlesOptions' class='particles' />
   <div class='login-container'>
-    <el-form :model='ruleFormModel' label-width='left'  status-icon ref='ruleForm' class='login-form'>
-      <div class="title-container">
-        <h3 class="title">Login Form</h3>
+    <el-form :model='ruleFormModel' label-width='left' status-icon ref='ruleForm' class='login-form'>
+      <div class='title-container'>
+        <h3 class='title'>Login Form</h3>
       </div>
       <el-form-item label='账号' prop='pass'>
         <el-input type='text' prefix-icon='el-icon-user' v-model='ruleFormModel.account' autocomplete='off'></el-input>
@@ -20,22 +20,38 @@
           v-model='ruleFormModel.password'
           autocomplete='off'></el-input>
       </el-form-item>
-      <el-button  type="primary" style="width:100%;margin-bottom:30px;">Login</el-button>
+      <el-button type='primary' style='width:100%;margin-bottom:30px;' @click='onsubmit'>Login</el-button>
     </el-form>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { ElMessage } from 'element-plus'
 import { ruleForm, ParticlesOptions } from './login'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Login',
 
   setup: () => {
+    const router = useRouter()
+    const onsubmit = () => {
+      if (ruleForm.account === 'admin' && ruleForm.password === '123456') {
+        console.log(router)
+        router.push({ path: 'dashboard' })
+      } else {
+        ElMessage.warning({
+          showClose: true,
+          message: '账号：admin；密码：123456',
+          type: 'warning',
+        })
+      }
+    }
     return {
       ruleFormModel: ruleForm,
       ParticlesOptions,
+      onsubmit,
     }
   },
 })

@@ -9,7 +9,7 @@
   z-index: 5;
 }
 
-.form-box{
+.form-box {
   z-index: 10;
   display: flex;
   position: absolute;
@@ -19,8 +19,10 @@
   padding: 40px;
   box-shadow: 0px 0px 5px -2px;
   border-radius: 10px;
-  .demo-ruleForm{
 
+  .demo-ruleForm {
+    & ::v-deep(.el-form-item__label) {
+      color: $form-title-color;
+    }
   }
 }
-

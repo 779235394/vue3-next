@@ -1,13 +1,6 @@
-/*
- * @Descripttion:
- * @Author: huangzihong
- * @Date: 2021-04-26 11:02:43
- * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 11:53:56
- */
 /**
  * @Author: junlan.he
- * @date: 2021/4/25
+ * @date: 2021/4/27
  * @desc:
  */
 import { reactive } from 'vue'
@@ -90,4 +83,3 @@ export const ruleForm: any = reactive({
   account: '',
   password: '',
 })
-

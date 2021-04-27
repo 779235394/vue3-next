@@ -21,7 +21,7 @@ const router:any = createRouter({
       path: '/',
       name: 'layout',
       component: () => import('../views/layout/index.vue'),
-      redirect: '/Home',
+      redirect: '/dashboard',
       children: [
         ...routeModuleList,
       ],

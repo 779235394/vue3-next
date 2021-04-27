@@ -14,9 +14,9 @@
 const BaseRouter: any = [
 
   {
-    path: '/Text',
-    name: 'Text',
-    component: () => import('../../views/Text.vue'),
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../../views/dashboard.vue'),
     meta: { title: '测试子页', noCache: true },
   },
   {

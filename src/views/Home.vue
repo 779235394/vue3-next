@@ -25,7 +25,7 @@ export default defineComponent({
     return {
       count,
       addCount: () => store.dispatch('textModules/set_count'),
-      handJump: () => router.push({ path: 'Text' }),
+      handJump: () => router.push({ path: 'dashboard' }),
     }
   },
 })

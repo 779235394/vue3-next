@@ -27,6 +27,7 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { ElMessage } from 'element-plus'
 import { ruleForm, ParticlesOptions } from './login'
 import { useRouter } from 'vue-router'
 
@@ -39,6 +40,12 @@ export default defineComponent({
       if (ruleForm.account === 'admin' && ruleForm.password === '123456') {
         console.log(router)
         router.push({ path: 'dashboard' })
+      } else {
+        ElMessage.warning({
+          showClose: true,
+          message: '账号：admin；密码：123456',
+          type: 'warning',
+        })
       }
     }
     return {

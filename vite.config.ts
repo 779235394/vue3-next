@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:35:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-26 15:50:16
+ * @LastEditTime: 2021-04-27 18:17:46
  */
 import { defineConfig } from 'vite'
 import path from 'path'

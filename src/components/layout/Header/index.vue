@@ -3,11 +3,16 @@
  * @Author: huangzihong
  * @Date: 2021-04-27 11:56:50
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 17:05:28
+ * @LastEditTime: 2021-04-27 19:35:58
 -->
 <template>
     <div class="navbar">
-      <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+      <hamburger
+        id="hamburger-container"
+        :is-active="sidebar.opened"
+        class="hamburger-container"
+        @toggleClick="toggleSideBar"
+      />
     </div>
 </template>
 <script lang="ts">

@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 16:34:51
+ * @LastEditTime: 2021-04-27 17:57:25
 -->
 <template>
   <div v-if="!item.hidden">
@@ -19,9 +19,9 @@
           :index="resolvePath(onlyOneChild.path)"
           :class="{ 'submenu-title-noDropdown': !isNest }"
         >
-          <template #title v-if="item.meta">
-            <i :class="[item.meta.icon, 'sub-el-icon']" />
-            <span>{{ item.meta.title }}</span>
+          <i :class="[onlyOneChild.meta.icon||(item.meta&&item.meta.icon), 'sub-el-icon']" />
+          <template v-slot:title v-if="item.meta">
+            <span>{{ onlyOneChild.meta.title }}</span>
           </template>
         </el-menu-item>
       </app-link>

@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 16:57:40
+ * @LastEditTime: 2021-04-27 17:15:49
 -->
 <template>
   <el-container :class="classObj"  class="app-wrapper">
@@ -22,11 +22,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, toRefs } from 'vue'
+import { defineComponent, onMounted, toRefs, reactive, computed } from 'vue'
 import Menu from '@/components/layout/Menu/menu.vue'
 import Header from '@/components/layout/Header/index.vue'
-import { state, classObj } from './index.ts'
-
+import { useStore } from 'vuex'
 export default defineComponent({
   name: 'Home',
   components: {
@@ -34,9 +33,20 @@ export default defineComponent({
     Header,
   },
   setup: () => {
-    onMounted(() => {
-      console.log(state.text)
+    const state:any = reactive({
+      sidebar: {},
     })
+    const store = useStore()
+    state.sidebar = store.state.layout.sidebar
+    const classObj = computed(() => {
+      return {
+        hideSidebar: !state.sidebar.opened,
+        openSidebar: state.sidebar.opened,
+        withoutAnimation: state.sidebar.withoutAnimation,
+      }
+    })
+
+    onMounted(() => {})
     return {
       classObj,
       ...toRefs(state),

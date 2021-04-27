@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:33:52
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 16:34:40
+ * @LastEditTime: 2021-04-27 19:13:36
 -->
 <template>
     <el-menu
@@ -45,7 +45,6 @@ export default defineComponent({
       return routeList[0]
     })
     const isCollapse = computed(() => !store.getters['layout/sidebar'].opened)
-
     onMounted(() => {})
     return {
       router,

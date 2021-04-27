@@ -19,4 +19,7 @@ $subMenuHover:#001528;
 $sideBarWidth: 210px;
 :export {
   sideBarWidth: $sideBarWidth;
+  menuActiveText: $menuActiveText;
+  menuText: $menuText;
+  menuBg: $menuBg;
 }

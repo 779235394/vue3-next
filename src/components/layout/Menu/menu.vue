@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:33:52
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 19:13:36
+ * @LastEditTime: 2021-04-28 14:25:10
 -->
 <template>
     <el-menu
@@ -39,10 +39,11 @@ export default defineComponent({
     const activeMenu = computed(() => { return router.currentRoute.value.path })
     const permission_routes = computed(() => {
       const routeList:any = []
-      router.options.routes.forEach((item) => {
-        if (item.path == '/') routeList.push(item.children)
+      router.options.routes.forEach((item:any) => {
+        if (item.path == '/') routeList.push(...item.children)
       })
-      return routeList[0]
+      console.log(routeList)
+      return routeList
     })
     const isCollapse = computed(() => !store.getters['layout/sidebar'].opened)
     onMounted(() => {})

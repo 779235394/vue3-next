@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-27 11:56:50
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 19:35:58
+ * @LastEditTime: 2021-04-28 11:09:29
 -->
 <template>
     <div class="navbar">
@@ -13,15 +13,18 @@
         class="hamburger-container"
         @toggleClick="toggleSideBar"
       />
+      <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     </div>
 </template>
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import Hamburger from './Hamburger.vue'
+import Breadcrumb from './Breadcrumb.vue'
 import { useStore } from 'vuex'
 export default defineComponent({
   components: {
     Hamburger,
+    Breadcrumb,
   },
 
   setup() {

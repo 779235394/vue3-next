@@ -1,3 +1,5 @@
+@import url('./element-ui.scss');
+@import url('./transition.scss');
 body {
   height: 100%;
   position: relative;
@@ -249,13 +251,15 @@ aside {
 
       &>.el-submenu__title {
         padding: 0 !important;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .svg-icon {
-          margin-left: 20px;
+          margin: 0px !important;
         }
 
         .sub-el-icon {
-          margin-left: 19px;
+          margin: 0px !important;
         }
 
         .el-submenu__icon-arrow {

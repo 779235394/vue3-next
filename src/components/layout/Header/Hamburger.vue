@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-27 14:53:07
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 19:37:14
+ * @LastEditTime: 2021-05-07 15:43:25
 -->
 <template>
   <div style="padding: 0 15px;" @click="toggleClick">
@@ -26,8 +26,8 @@ export default defineComponent({
   name: 'Hamburger',
   props: {
     isActive: {
-      type: Boolean,
-      default: false,
+      type: Number,
+      default: 0,
     },
   },
   setup: (props, context) => {

@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 17:15:49
+ * @LastEditTime: 2021-05-07 15:39:17
 -->
 <template>
   <el-container :class="classObj"  class="app-wrapper">
@@ -37,7 +37,7 @@ export default defineComponent({
       sidebar: {},
     })
     const store = useStore()
-    state.sidebar = store.state.layout.sidebar
+    state.sidebar = store.getters['layout/sidebar']
     const classObj = computed(() => {
       return {
         hideSidebar: !state.sidebar.opened,

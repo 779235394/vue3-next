@@ -6,8 +6,8 @@
  * @LastEditTime: 2021-05-07 15:39:17
 -->
 <template>
-  <el-container :class="classObj"  class="app-wrapper">
-    <el-aside width="200px">
+  <el-container :class='classObj' class='app-wrapper'>
+    <el-aside width='200px' style='background: #515a6e'>
       <Menu></Menu>
     </el-aside>
     <el-container>
@@ -21,11 +21,12 @@
   </el-container>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { defineComponent, onMounted, toRefs, reactive, computed } from 'vue'
 import Menu from '@/components/layout/Menu/menu.vue'
 import Header from '@/components/layout/Header/index.vue'
 import { useStore } from 'vuex'
+
 export default defineComponent({
   name: 'Home',
   components: {
@@ -33,7 +34,7 @@ export default defineComponent({
     Header,
   },
   setup: () => {
-    const state:any = reactive({
+    const state: any = reactive({
       sidebar: {},
     })
     const store = useStore()
@@ -46,7 +47,8 @@ export default defineComponent({
       }
     })
 
-    onMounted(() => {})
+    onMounted(() => {
+    })
     return {
       classObj,
       ...toRefs(state),
@@ -55,6 +57,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
-@import './index.scss'
+<style lang='scss' scoped>
+  @import './index.scss';
 </style>

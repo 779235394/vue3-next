@@ -7,43 +7,22 @@
 -->
 <template>
   <div v-if="!item.hidden">
-    <template
-      v-if="
-        hasOneShowingChild(item.children, item) &&
-        (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
-        !item.alwaysShow
-      "
-    >
+    <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item
-          :index="resolvePath(onlyOneChild.path)"
-          :class="{ 'submenu-title-noDropdown': !isNest }"
-        >
-          <i :class="[onlyOneChild.meta.icon||(item.meta&&item.meta.icon), 'sub-el-icon']" />
+        <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'submenu-title-noDropdown': !isNest }">
+          <i :class="[onlyOneChild.meta.icon || (item.meta && item.meta.icon), 'sub-el-icon']" />
           <template v-slot:title v-if="item.meta">
             <span>{{ onlyOneChild.meta.title }}</span>
           </template>
         </el-menu-item>
       </app-link>
     </template>
-    <el-submenu
-      v-else
-      ref="subMenu"
-      :index="resolvePath(item.path)"
-      popper-append-to-body
-    >
+    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body >
       <template #title v-if="item.meta">
         <i :class="[item.meta.icon, 'sub-el-icon']" />
         <span>{{ item.meta.title }}</span>
       </template>
-      <sidebar-item
-        v-for="child in item.children"
-        :key="item.path  + '/' +  child.path"
-        :is-nest="true"
-        :item="child"
-        :base-path="resolvePath(item.path + '/' + child.path)"
-        class="nest-menu"
-      />
+      <sidebar-item v-for="child in item.children" :key="item.path + '/' + child.path" :is-nest="true" :item="child" :base-path="resolvePath(item.path + '/' + child.path)" class="nest-menu" />
     </el-submenu>
   </div>
 </template>
@@ -74,12 +53,12 @@ export default defineComponent({
       onlyOneChild: null,
     })
     /**
-     * @param {children} children
-     * @param {parent} parent
-     * @return {hasOneShowingChild}
-    */
+       * @param {children} children
+       * @param {parent} parent
+       * @return {hasOneShowingChild}
+       */
     function hasOneShowingChild(children = [], parent) {
-      const showingChildren = children.filter((childrenItem:any) => {
+      const showingChildren = children.filter((childrenItem: any) => {
         let bool = false
         if (childrenItem && childrenItem.hidden) {
           bool = false
@@ -102,9 +81,9 @@ export default defineComponent({
       return false
     }
     /**
-     * @param {routePat} routePath
-     * @return {resolvePath}
-    */
+       * @param {routePat} routePath
+       * @return {resolvePath}
+       */
     function resolvePath(routePath) {
       if (isExternal(routePath)) {
         return routePath
@@ -114,8 +93,7 @@ export default defineComponent({
       }
       return routePath
     }
-    onMounted(() => {
-    })
+    onMounted(() => {})
     return {
       resolvePath,
       hasOneShowingChild,
@@ -124,4 +102,3 @@ export default defineComponent({
   },
 })
 </script>
-,,

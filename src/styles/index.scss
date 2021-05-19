@@ -6,8 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial,
-    sans-serif;
+  font-family: PingFang SC,Arial,Microsoft YaHei,sans-serif;
   margin: 0;
   padding: 0;
   font-size: $font-size;
@@ -128,6 +127,12 @@ aside {
     position: relative;
   }
 
+  .el-menu {
+    border: none;
+    height: 100%;
+    width: 100% !important;
+  }
+
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
@@ -183,11 +188,7 @@ aside {
       margin-left: -2px;
     }
 
-    .el-menu {
-      border: none;
-      height: 100%;
-      width: 100% !important;
-    }
+
 
     // menu hover
     .submenu-title-noDropdown,

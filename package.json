@@ -15,6 +15,12 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@types/node": "^14.14.41",
     "element-plus": "^1.0.2-beta.40",

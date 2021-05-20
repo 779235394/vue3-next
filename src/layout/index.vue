@@ -15,7 +15,7 @@
         <Header></Header>
       </el-header>
       <el-main>
-        <RouterView />
+        <Main></Main>
       </el-main>
     </el-container>
   </el-container>
@@ -23,13 +23,15 @@
 
 <script lang='ts'>
 import { defineComponent, onMounted, toRefs, reactive, computed } from 'vue'
-import Menu from '@/components/layout/Menu/menu.vue'
-import Header from '@/components/layout/Header/index.vue'
+import Menu from '@/layout/components/Menu/menu.vue'
+import Header from '@/layout/components/Header/index.vue'
 import { useStore } from 'vuex'
+import Main from '@/layout/components/Main/main.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
+    Main,
     Menu,
     Header,
   },
@@ -58,5 +60,5 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-  @import './index.scss';
+  @import 'index';
 </style>

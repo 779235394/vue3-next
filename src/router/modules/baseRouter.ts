@@ -10,36 +10,27 @@
  * @date: 2021/4/23
  * @desc:
  */
-
+import Layout from '@/layout/components/Main/main.vue'
 const BaseRouter: any = [
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import('../../views/dashboard.vue'),
-    meta: { title: '首页', noCache: true, icon: 'el-icon-house' },
-  },
-  {
-    path: '/Home',
-    name: 'Home',
-    component: () => import('../../views/Home.vue'),
-    meta: { title: '测试页1', noCache: true, icon: 'el-icon-smoking' },
-  },
-  {
-    path: '/Home1',
-    name: 'Home1',
-    component: () => import('../../views/Home.vue'),
-    meta: { title: '测试页2', noCache: true, icon: 'el-icon-smoking' },
-    children: [{
-      path: '/Home11',
-      name: 'Home11',
-      component: () => import('../../views/Home.vue'),
-      meta: { title: '测试页2', noCache: true, icon: 'el-icon-smoking' },
-    }, {
-      path: '/Home12',
-      name: 'Home12',
-      component: () => import('../../views/Home.vue'),
-      meta: { title: '测试页2', noCache: true, icon: 'el-icon-smoking' },
-    }],
+    path: '/baseManager',
+    name: 'BaseManager',
+    component: Layout,
+    meta: { title: '基础管理', noCache: true, icon: 'el-icon-smoking' },
+    children: [
+      {
+        path: '/role',
+        name: 'Role',
+        component: () => import('../../views/baseManager/role.vue'),
+        meta: { title: '角色管理', noCache: true, icon: 'el-icon-smoking' },
+      },
+      {
+        path: '/user',
+        name: 'User',
+        component: () => import('../../views/baseManager/user.vue'),
+        meta: { title: '用户管理', noCache: true, icon: 'el-icon-smoking' },
+      },
+    ],
   },
 ]
 

@@ -4,8 +4,7 @@
 * @desc:
 */
 <template>
-  <div>aaaa</div>
-  <el-button type="success" @click="router.go(-1)">路由跳转</el-button>
+  <div>首页</div>
 </template>
 
 <script lang="ts">

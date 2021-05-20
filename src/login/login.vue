@@ -8,7 +8,7 @@
   <div class='login-container'>
     <el-form :model='ruleFormModel' label-width='left' status-icon ref='ruleForm' class='login-form'>
       <div class='title-container'>
-        <h3 class='title'>Login Form</h3>
+        <h3 class='title'>Vue3 Admin</h3>
       </div>
       <el-form-item label='账号' prop='pass'>
         <el-input type='text' prefix-icon='el-icon-user' v-model='ruleFormModel.account' autocomplete='off'></el-input>
@@ -39,7 +39,7 @@ export default defineComponent({
     const onsubmit = () => {
       if (ruleForm.account === 'admin' && ruleForm.password === '123456') {
         console.log(router)
-        router.push({ path: 'dashboard' })
+        router.replace({ path: 'dashboard' })
       } else {
         ElMessage.warning({
           showClose: true,
@@ -58,5 +58,5 @@ export default defineComponent({
 </script>
 
 <style lang='scss' scoped>
-  @import "./login.scss";
+  @import "login";
 </style>

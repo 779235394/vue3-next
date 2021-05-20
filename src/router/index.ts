@@ -11,7 +11,6 @@
  * @desc:
  */
 import { createRouter, createWebHistory } from 'vue-router'
-
 const modules = import.meta.globEager('./modules/**/*.ts')
 const routeModuleList: any[] = []
 
@@ -27,16 +26,22 @@ const router:any = createRouter({
     {
       path: '/',
       name: 'layout',
-      component: () => import('../views/layout/index.vue'),
+      component: () => import('../layout/index.vue'),
       redirect: '/dashboard',
       children: [
+        {
+          path: '/dashboard',
+          name: 'dashboard',
+          component: () => import('../views/dashboard.vue'),
+          meta: { title: '首页', noCache: true, icon: 'el-icon-house' },
+        },
         ...routeModuleList,
       ],
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/login/login.vue'),
+      component: () => import('../login/login.vue'),
     },
   ],
 })

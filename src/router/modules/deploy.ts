@@ -1,22 +1,16 @@
-/*
- * @Descripttion:
- * @Author: huangzihong
- * @Date: 2021-04-26 10:35:04
- * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-28 11:42:55
- */
 /**
  * @Author: junlan.he
  * @date: 2021/4/23
  * @desc:
  */
 import Layout from '@/layout/components/Main/main.vue'
-const BaseRouter: any = [
+const deploy: any = [
   {
-    path: '/baseManager',
-    name: 'BaseManager',
+    path: '/deploy',
+    name: 'Deploy',
     component: Layout,
-    meta: { title: '基础管理', noCache: true, icon: 'el-icon-smoking' },
+    redirect: '/role',
+    meta: { title: '配置', noCache: true, icon: 'el-icon-smoking', sort: 1 },
     children: [
       {
         path: '/role',
@@ -34,4 +28,4 @@ const BaseRouter: any = [
   },
 ]
 
-export default BaseRouter
+export default deploy

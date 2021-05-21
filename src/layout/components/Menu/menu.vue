@@ -42,7 +42,6 @@ export default defineComponent({
       router.options.routes.forEach((item: any) => {
         if (item.path == '/') routeList.push(...item.children)
       })
-      console.log(routeList)
       return routeList
     })
     const isCollapse = computed(() => !store.getters['layout/sidebar'].opened)

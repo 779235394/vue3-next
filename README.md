@@ -18,9 +18,6 @@
    <a href="https://github.com/npm/npm">
     <img src="https://img.shields.io/badge/npm-6.1.8-blue" alt="npm">
    </a>
-   <a href="https://gitter.im/vue3Admin/community">
-    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="gitter">
-  </a>
 </p>
 
 

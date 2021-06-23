@@ -15,9 +15,6 @@
   <a href="https://github.com/vuejs/vuex">
     <img src="https://img.shields.io/badge/vuex-4.0-brightgreen" alt="vuex">
   </a>
-   <a href="https://github.com/intlify/vue-i18n-next">
-    <img src="https://img.shields.io/badge/vue--i18n--next-9.0-brightgreen" alt="vue-i18n-next">
-   </a>
    <a href="https://github.com/npm/npm">
     <img src="https://img.shields.io/badge/npm-6.1.8-blue" alt="npm">
    </a>

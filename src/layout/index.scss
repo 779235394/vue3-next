@@ -10,6 +10,14 @@
   ::v-deep(.el-header){
     padding: 0;
   }
+  .main-box{
+    background: #f6f8f9;
+    .main{
+      background: #fff;
+      margin: 10px auto;
+      width: calc(100% - 40px);
+    }
+  }
 }
 
 .drawer-bg {

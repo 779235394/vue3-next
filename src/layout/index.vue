@@ -10,12 +10,12 @@
     <el-aside width='200px' style='background: #515a6e'>
       <Menu></Menu>
     </el-aside>
-    <el-container>
+    <el-container class='main-box'>
       <el-header>
         <Header></Header>
       </el-header>
       <el-main>
-        <Main></Main>
+        <Main class='main'></Main>
       </el-main>
     </el-container>
   </el-container>

@@ -11,7 +11,7 @@ const componentVector:any=[
     name: 'ComponentVector',
     component: Layout,
     redirect: '/table',
-    meta: { title: '组件', noCache: true, icon: 'el-icon-smoking', sort: 2 },
+    meta: { title: '物料广场', noCache: true, icon: 'el-icon-smoking', sort: 2 },
     children: [
       {
         path: '/table',

@@ -11,8 +11,10 @@ function resolve(dir) {
 }
 
 export default defineConfig({
-  base: '/vue3-next/',
   plugins: [vue()],
+  build: {
+    outDir: 'docs',
+  },
   resolve: {
     alias: { '@': resolve('src') },
     extensions: ['.js', '.ts', '.vue', '.json'],

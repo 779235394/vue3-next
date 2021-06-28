@@ -12,9 +12,6 @@ function resolve(dir) {
 
 export default defineConfig({
   plugins: [vue()],
-  build: {
-    outDir: 'docs',
-  },
   resolve: {
     alias: { '@': resolve('src') },
     extensions: ['.js', '.ts', '.vue', '.json'],

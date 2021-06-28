@@ -1,1 +1,0 @@
-import{d as a,u as r,o as s,c as e,w as o}from"./vendor.866412a3.js";var d=a({name:"Dashboard",setup:()=>({router:r()})});const t=o()(((a,r,o,d,t,n)=>(s(),e("div",null,"首页"))));d.render=t,d.__scopeId="data-v-5b0664f3";export default d;

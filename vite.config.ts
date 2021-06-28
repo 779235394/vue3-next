@@ -1,10 +1,3 @@
-/*
- * @Descripttion:
- * @Author: huangzihong
- * @Date: 2021-04-26 10:35:04
- * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-27 18:17:46
- */
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
@@ -18,6 +11,7 @@ function resolve(dir) {
 }
 
 export default defineConfig({
+  base: '/vue3-next/',
   plugins: [vue()],
   resolve: {
     alias: { '@': resolve('src') },

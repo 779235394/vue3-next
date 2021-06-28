@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "sudo sh deploy.sh"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,vue}": [

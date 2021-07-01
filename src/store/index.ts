@@ -8,9 +8,11 @@
 import { createStore } from 'vuex'
 import textModules from './modules/test'
 import layout from './modules/layout'
+import tagViews from './modules/tagViews'
 export const store = createStore({
   modules: {
     textModules,
     layout,
+    tagViews,
   },
 })

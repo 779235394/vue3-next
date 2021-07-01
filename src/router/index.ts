@@ -48,7 +48,7 @@ const router: any = createRouter({
           path: '/dashboard',
           name: 'dashboard',
           component: () => import('../views/dashboard.vue'),
-          meta: { title: '首页', noCache: true, icon: 'el-icon-house' },
+          meta: { title: '首页', noCache: true, icon: 'el-icon-house', affix: true },
         },
         ...routeModuleList,
       ],

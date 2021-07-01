@@ -13,6 +13,7 @@
     <el-container class='main-box'>
       <el-header>
         <Header></Header>
+        <TagsView />
       </el-header>
       <el-main>
         <Main class='main'></Main>
@@ -27,6 +28,7 @@ import Menu from '@/layout/components/Menu/menu.vue'
 import Header from '@/layout/components/Header/index.vue'
 import { useStore } from 'vuex'
 import Main from '@/layout/components/Main/main.vue'
+import TagsView from '@/layout/components/TagsView/index.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -34,6 +36,7 @@ export default defineComponent({
     Main,
     Menu,
     Header,
+    TagsView,
   },
   setup: () => {
     const state: any = reactive({

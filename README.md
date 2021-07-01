@@ -33,3 +33,10 @@ This template should help get you started developing with Vue 3 and Typescript i
 此模版采用 Vue 3 + Typescript + Vite + Vuex4 + Element-Plus 构建
 ```
 
+### 注意事项
+element-plus 图标无法显示时是资源包引用的问题，修改main.ts
+```markdown
+// import 'element-plus/lib/theme-chalk/index.css'
+import 'element-plus/packages/theme-chalk/src/index.scss'
+```
+

@@ -12,10 +12,10 @@ import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
-      name: 'Dashboard',
+  name: 'Dashboard',
 
   setup: () => {
-           const router = useRouter()
+    const router = useRouter()
     return {
       router,
     }

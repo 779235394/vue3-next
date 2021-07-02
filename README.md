@@ -23,6 +23,8 @@
 
 > vue3-next 是一个管理端模板解决方案，它是基于vue3,ts和element-plus，项目都是以composition api风格编写。
 
+link https://779235394.github.io/vue3-next/#/dashboard
+
 
 # Vue 3 + Typescript + Vite + Vuex4 + Element-Plus
 
@@ -39,4 +41,6 @@ element-plus 图标无法显示时是资源包引用的问题，修改main.ts
 // import 'element-plus/lib/theme-chalk/index.css'
 import 'element-plus/packages/theme-chalk/src/index.scss'
 ```
+
+路由history模式，github站点部署不成功，还不知道为啥，用hash模式就可以 createWebHashHistory
 

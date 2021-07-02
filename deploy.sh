@@ -20,6 +20,8 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果你要部署在 https://<USERNAME>.github.io/<REPO>
- git push -f git@github.com:779235394/vue3-next.git master
+git push -f git@github.com:779235394/vue3-next.git master:gh-pages
+
+
 
 cd -

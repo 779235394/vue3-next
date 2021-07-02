@@ -10,7 +10,7 @@
  * @date: 2021/4/23
  * @desc:
  */
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 const modules = import.meta.globEager('./modules/**/*.ts')
 
 /**
@@ -35,7 +35,7 @@ routeModuleList = routeModuleList.sort(compare('sort'))
 
 console.log(routeModuleList)
 const router: any = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   strict: true,
   routes: [
     {

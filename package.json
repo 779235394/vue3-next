@@ -6,7 +6,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "sh deploy.sh"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,vue}": [

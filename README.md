@@ -23,7 +23,7 @@
 
 > vue3-next 是一个管理端模板解决方案，它是基于vue3,ts和element-plus，项目都是以composition api风格编写。
 
-link https://779235394.github.io/vue3-next/#/dashboard
+[预览地址](https://779235394.github.io/vue3-next/#/dashboard)
 
 
 # Vue 3 + Typescript + Vite + Vuex4 + Element-Plus

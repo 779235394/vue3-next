@@ -16,7 +16,9 @@
         <TagsView />
       </el-header>
       <el-main>
-        <Main class='main'></Main>
+        <div class='main'>
+          <Main></Main>
+        </div>
       </el-main>
     </el-container>
   </el-container>
@@ -28,7 +30,7 @@ import Menu from '@/layout/components/Menu/menu.vue'
 import Header from '@/layout/components/Header/index.vue'
 import { useStore } from 'vuex'
 import Main from '@/layout/components/Main/main.vue'
-import TagsView from '@/layout/components/TagsView/index.vue'
+import TagsView from '@/layout/components/TagsView/tagsview.vue'
 
 export default defineComponent({
   name: 'Home',

@@ -1,15 +1,4 @@
-/*
- * @Descripttion:
- * @Author: huangzihong
- * @Date: 2021-04-27 14:41:45
- * @LastEditors: huangzihong
- * @LastEditTime: 2021-04-28 14:25:26
- */
-/**
- * @Author: junlan.he
- * @date: 2021/4/23
- * @desc:
- */
+
 import { createRouter, createWebHashHistory } from 'vue-router'
 const modules = import.meta.globEager('./modules/**/*.ts')
 
@@ -46,7 +35,7 @@ const router: any = createRouter({
       children: [
         {
           path: '/dashboard',
-          name: 'dashboard',
+          name: 'Dashboard',
           component: () => import('../views/dashboard.vue'),
           meta: { title: '首页', noCache: true, icon: 'el-icon-house', affix: true },
         },
@@ -55,7 +44,7 @@ const router: any = createRouter({
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: () => import('../login/login.vue'),
     },
   ],

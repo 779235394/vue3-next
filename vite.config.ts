@@ -10,16 +10,16 @@ export default defineConfig({
     extensions: ['.js', '.ts', '.vue', '.json'],
   },
   build: {
-    // target: 'modules',
-    // outDir: 'dist',
-    // assetsDir: 'assets',
+    target: 'modules',
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
-        // manualChunks(id) {
-        //   if (id.includes('node_modules')) {
-        //     return id.toString().split('node_modules/')[1].split('/')[0].toString()
-        //   }
-        // },
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString()
+          }
+        },
       },
     },
   },

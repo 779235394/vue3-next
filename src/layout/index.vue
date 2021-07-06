@@ -16,9 +16,7 @@
         <TagsView />
       </el-header>
       <el-main>
-        <div class='main'>
-          <Main></Main>
-        </div>
+        <Main></Main>
       </el-main>
     </el-container>
   </el-container>
@@ -66,4 +64,21 @@ export default defineComponent({
 
 <style lang='scss' scoped>
   @import 'index';
+
+  .main-box {
+    ::v-deep(.el-header) {
+      height: auto !important;
+    }
+
+    ::v-deep(.el-main ) {
+      padding: 20px !important;
+      height: 100%;
+      border: 1px solid #ffffff;
+      background: #fff;
+      margin: 10px;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+  }
 </style>

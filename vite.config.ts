@@ -6,7 +6,10 @@ export default defineConfig({
   base: '/vue3-next/',
   plugins: [vue()],
   resolve: {
-    alias: { '@': path.resolve(__dirname, 'src') },
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      'components': path.resolve(__dirname, 'src/components'),
+    },
     extensions: ['.js', '.ts', '.vue', '.json'],
   },
   build: {

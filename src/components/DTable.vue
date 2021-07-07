@@ -123,8 +123,7 @@ export default defineComponent({
     }
   }
   .pagination{
-    display: flex;
-    flex-direction: row-reverse;
     padding: 20px 0px;
+    text-align: end;
   }
 </style>

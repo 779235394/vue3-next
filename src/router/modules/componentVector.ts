@@ -1,3 +1,10 @@
+/*
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2021-07-09 10:58:02
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-07-09 14:59:46
+ */
 /**
  * @Author: junlan.he
  * @date: 2021/5/21
@@ -5,7 +12,7 @@
  */
 import Layout from '@/layout/components/Main/main.vue'
 
-const componentVector:any=[
+const componentVector: any = [
   {
     path: '/componentVector',
     name: 'ComponentVector',
@@ -24,6 +31,12 @@ const componentVector:any=[
         name: 'DynamicTable',
         component: () => import('../../views/componentVector/dynamicTable.vue'),
         meta: { title: '动态表格', noCache: true, icon: 'el-icon-smoking' },
+      },
+      {
+        path: '/dynamicForm',
+        name: 'DynamicForm',
+        component: () => import('../../views/componentVector/dynamicForm.vue'),
+        meta: { title: '动态表单', noCache: true, icon: 'el-icon-smoking' },
       },
       {
         path: '/tableDetails/:id',

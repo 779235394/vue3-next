@@ -1,22 +1,16 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
+  env: {
+    browser: true,
+    es2021: true,
   },
-  'extends': [
-    'plugin:vue/essential',
-    'google',
-  ],
-  'parserOptions': {
-    'ecmaVersion': 12,
-    'parser': '@typescript-eslint/parser',
-    'sourceType': 'module',
+  extends: ['plugin:vue/essential', 'google'],
+  parserOptions: {
+    ecmaVersion: 12,
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
   },
-  'plugins': [
-    'vue',
-    '@typescript-eslint',
-  ],
-  'rules': {
+  plugins: ['vue', '@typescript-eslint'],
+  rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -108,8 +102,9 @@ module.exports = {
         capIsNew: false,
       },
     ],
+    'vue/no-mutating-props': 0,
     'new-parens': 2,
-    'max-len': ['error', { 'code': 1000 }],
+    'max-len': ['error', { code: 1000 }],
     'no-array-constructor': 2,
     'no-caller': 2,
     'no-class-assign': 2,

@@ -1,6 +1,6 @@
 /**
 * @Author: junlan.he
-* @date: 2021/5/21
+* @date: 2021/7/8
 * @desc:
 */
 <template>
@@ -8,6 +8,7 @@
     :tableColumns='tableColumns'
     :tableData='tableData'
     :pageConfig='pageConfig'
+    :btnGroup="btnGroup"
     height='600'
     pagination
     size='mini'
@@ -24,14 +25,15 @@
   </DTable>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
 import DTable from 'components/DTable.vue'
-
 export default defineComponent({
   components: { DTable },
   emits: ['handle-size-change', 'handle-current-change'],
   setup() {
+    const router =useRouter()
     const tableState = reactive({
       tableColumns: [
         { type: 'selection', align: 'center', fixed: true },
@@ -203,6 +205,52 @@ export default defineComponent({
         pageSizes: [10, 20, 30, 40, 50, 100],
         pageSize: 10,
         total: 200,
+      },
+      btnGroup: {
+        label: '操作',
+        fixed: 'right',
+        type: 'operation',
+        minWidth: '120',
+        align: 'center',
+        group: [
+          {
+            size: 'mini',
+            name: '编辑',
+            type: 'primary',
+            icon: 'el-icon-edit',
+            isShow: () => {
+              return true
+            },
+            click: (row) => {
+              console.log('row:', row)
+              router.push('/tableDetails/1')
+            },
+          },
+          {
+            size: 'mini',
+            name: '禁用',
+            type: 'primary',
+            icon: 'el-icon-edit',
+            isShow: () => {
+              return true
+            },
+            click: (row) => {
+              console.log(row)
+            },
+          },
+          {
+            size: 'mini',
+            name: '删除',
+            type: 'danger',
+            icon: 'el-icon-edit',
+            isShow: () => {
+              return true
+            },
+            click: (row) => {
+              console.log(row)
+            },
+          },
+        ],
       },
     })
     const tableMethods = reactive({

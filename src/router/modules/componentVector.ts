@@ -25,6 +25,13 @@ const componentVector:any=[
         component: () => import('../../views/componentVector/dynamicTable.vue'),
         meta: { title: '动态表格', noCache: true, icon: 'el-icon-smoking' },
       },
+      {
+        path: '/tableDetails/:id',
+        name: 'TableDetails',
+        component: () => import('../../views/componentVector/tableDetails.vue'),
+        meta: { title: 'table列表详情页', noCache: true, icon: 'el-icon-smoking', activeMenu: '/dynamicTable' },
+        hidden: true,
+      },
     ],
   },
 ]

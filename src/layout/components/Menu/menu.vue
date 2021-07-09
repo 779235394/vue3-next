@@ -1,10 +1,3 @@
-<!--
- * @Descripttion:
- * @Author: huangzihong
- * @Date: 2021-04-26 10:33:52
- * @LastEditors: huangzihong
- * @LastEditTime: 2021-05-07 15:34:19
--->
 <template>
   <el-menu
     :default-active='activeMenu'
@@ -20,8 +13,8 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted, toRefs, reactive, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { defineComponent, onMounted, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import sidebarItem from './sidebarItem.vue'
 import { useStore } from 'vuex'
 
@@ -31,11 +24,17 @@ export default defineComponent({
     sidebarItem,
   },
   setup: () => {
-    const state = reactive({})
     const store = useStore()
     const router = useRouter()
+    const route = useRoute()
     const activeMenu = computed(() => {
-      return router.currentRoute.value.path
+      const { meta, path } = route
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+      // console.log(router.currentRoute.value.meta)
+      // return router.currentRoute.value.meta.isDetails? router.currentRoute.value.meta.activeMenu : router.currentRoute.value.path
     })
     const permission_routes = computed(() => {
       const routeList: any = []
@@ -52,7 +51,6 @@ export default defineComponent({
       activeMenu,
       permission_routes,
       isCollapse,
-      ...toRefs(state),
     }
   },
 })

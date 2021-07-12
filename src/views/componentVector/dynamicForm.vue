@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 15:39:41
+ * @LastEditTime: 2021-07-12 17:10:58
 -->
 <template>
   <DForm ref="DForm"  :rules="rules" :needToast="true" :formData="formData" @event="event" :formCols="formCols">
@@ -17,6 +17,7 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import DForm from 'components/DForm/DForm.vue'
 export default defineComponent({
+  name: 'DynamicForm',
   components: { DForm },
   emits: ['handle-size-change', 'handle-current-change'],
   setup() {

@@ -106,7 +106,7 @@ export default defineComponent({
       },
       closeSelectedTag: (view) => {
         if (view.name === 'Dashboard') return
-        store.dispatch('tagViews/ACTION_DEL_VIEW', view)
+        store.dispatch('tagViews/delView', view)
         if (state.isActive(view)) {
           toLastView(store.state.tagViews.visitedViews, view)
         }
@@ -117,10 +117,10 @@ export default defineComponent({
             console.log(err)
           })
         }
-        store.dispatch('tagViews/ACTION_DEL_OTHER_VIEW', view )
+        store.dispatch('tagViews/delOthersViews', view )
       },
       closeSelectedAllTag: () => {
-        store.dispatch('tagViews/ACTION_DEL_ALL_VIEWS', undefined)
+        store.dispatch('tagViews/delAllViews', undefined)
         if (state.affixTags.some((tag) => tag.path === currentRoute.path)) {
           return
         }
@@ -173,14 +173,14 @@ export default defineComponent({
 
       for (const tag of state.affixTags) {
         if (tag.name) {
-          store.dispatch('tagViews/ACTION_ADD_VISITED_VIEW', tag)
+          store.dispatch('tagViews/addVisitedView', tag)
         }
       }
     }
 
     const addTags = () => {
       if (currentRoute.name) {
-        store.dispatch('tagViews/ACTION_ADD_VIEW', currentRoute)
+        store.dispatch('tagViews/addView', currentRoute)
       }
       state.selectedTag = currentRoute
       return false

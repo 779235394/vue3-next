@@ -1,8 +1,10 @@
-/**
-* @Author: junlan.he
-* @date: 2021/7/9
-* @desc:
-*/
+<!--
+ * @Descripttion:
+ * @Author: junlan.he
+ * @Date: 2021-07-09 10:58:02
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-07-12 17:19:06
+-->
 <template>
   table表详情页
   <el-button @click='goBack'>返回</el-button>
@@ -22,7 +24,7 @@ export default defineComponent({
     const state = reactive({
       goBack: () => {
         router.push({ path: '/dynamicTable' })
-        store.dispatch('tagViews/ACTION_DEL_VIEW', route)
+        store.dispatch('tagViews/delView', route)
       },
     })
 

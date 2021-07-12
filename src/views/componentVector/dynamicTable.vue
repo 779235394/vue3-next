@@ -30,6 +30,7 @@ import { defineComponent, reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import DTable from 'components/DTable.vue'
 export default defineComponent({
+  name: 'DynamicTable',
   components: { DTable },
   emits: ['handle-size-change', 'handle-current-change'],
   setup() {

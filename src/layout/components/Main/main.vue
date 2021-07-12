@@ -1,21 +1,26 @@
-/**
-* @Author: junlan.he
-* @date: 2021/5/20
-* @desc:
-*/
+<!--
+ * @Descripttion:
+ * @Author: hejunlan
+ * @Date: 2021-07-09 10:43:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2021-07-12 16:15:42
+-->
 <template>
-  <RouterView />
+    <router-view v-slot="{ Component, route }">
+      <keep-alive :max="10">
+        <component :is="Component" :key="route.name" v-if="route.meta.keepAlive"/>
+      </keep-alive>
+      <component :is="Component" :key="route.name" v-if="!route.meta.keepAlive"/>
+    </router-view>
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+export default defineComponent({
   name: 'Main',
-  data() {
-    return {}
-  },
-}
+})
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 
 </style>

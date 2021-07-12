@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-07-09 10:58:02
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 14:59:46
+ * @LastEditTime: 2021-07-12 14:55:32
  */
 /**
  * @Author: junlan.he
@@ -30,13 +30,13 @@ const componentVector: any = [
         path: '/dynamicTable',
         name: 'DynamicTable',
         component: () => import('../../views/componentVector/dynamicTable.vue'),
-        meta: { title: '动态表格', noCache: true, icon: 'el-icon-smoking' },
+        meta: { title: '动态表格', noCache: true, icon: 'el-icon-smoking', keepAlive: true },
       },
       {
         path: '/dynamicForm',
         name: 'DynamicForm',
         component: () => import('../../views/componentVector/dynamicForm.vue'),
-        meta: { title: '动态表单', noCache: true, icon: 'el-icon-smoking' },
+        meta: { title: '动态表单', noCache: true, icon: 'el-icon-smoking', keepAlive: true },
       },
       {
         path: '/tableDetails/:id',

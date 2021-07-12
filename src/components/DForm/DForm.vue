@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 15:39:49
+ * @LastEditTime: 2021-07-12 11:41:39
 -->
 <template>
   <el-form
@@ -49,19 +49,17 @@ export default defineComponent({
   name: 'DForm',
   components: { mElement },
   props: {
-    // 是否可拖拽排序
-    canDraggable: { type: Boolean, default: false },
-    disabled: { type: Boolean, default: false },
-    needToast: { type: Boolean, default: false },
-    labelPosition: { type: String, default: 'right' },
-    formData: { type: Object, default: null },
-    rules: { type: Object, default: null },
-    formCols: { type: Array, default: () => [[{}]] },
-    isInline: { type: Boolean, default: false },
-    statusIcon: { type: Boolean, default: false },
-    size: { type: String, default: 'medium' },
-    labelSuffix: { type: String, default: '：' },
-    labelWidth: { type: String, default: '120px' },
+    disabled: { type: Boolean, default: false }, // 是否禁用
+    needToast: { type: Boolean, default: false }, // 是否需要校验提示弹窗
+    labelPosition: { type: String, default: 'right' }, // label对齐方式
+    formData: { type: Object, default: null }, // 表单数据
+    rules: { type: Object, default: null }, // 表单校验规则
+    formCols: { type: Array, default: () => [[{}]] }, // 表单分栏
+    isInline: { type: Boolean, default: false }, // 行内表单模式
+    statusIcon: { type: Boolean, default: false }, // 是否在输入框中显示校验结果反馈图标
+    size: { type: String, default: 'medium' }, // 用于控制该表单内组件的尺寸 medium / small / mini
+    labelSuffix: { type: String, default: '：' }, // 表单域标签的后缀
+    labelWidth: { type: String, default: '120px' }, // 表单域标签的宽度
   },
   emits: ['event', 'submit', 'reset'],
   setup(props, content) {

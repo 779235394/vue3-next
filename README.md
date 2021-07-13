@@ -44,3 +44,22 @@ import 'element-plus/packages/theme-chalk/src/index.scss'
 
 路由history模式，github站点部署不成功，还不知道为啥，用hash模式就可以 createWebHashHistory
 
+路由使用缓存的方法，在路由meat添加keepAlive:true，并在对应页面添加name
+如：
+``` js
+  // router/modules/componentVector.js
+  {
+    path: '/dynamicTable',
+    name: 'DynamicTable',
+    component: () => import('../../views/componentVector/dynamicTable.vue'),
+    meta: { title: '动态表格', noCache: true, icon: 'el-icon-smoking', keepAlive: true },
+  }
+
+  // view/componentVector/dynamicTable
+  export default defineComponent({
+    // ...
+    name: 'DynamicTable',
+    // ...
+  })
+```
+

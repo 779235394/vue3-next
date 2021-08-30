@@ -4,7 +4,7 @@
 * @desc:
 */
 <template>
-  <el-table v-bind='$attrs' border stripe :data='tableData' :header-cell-style="{background:'#f5f7fa'}">
+  <el-table v-bind='$attrs' border stripe :data='tableData' fit :header-cell-style="{background:'#f5f7fa'}">
     <template v-for='item in tableColumns'>
       <!--  表格多选框  -->
       <el-table-column
@@ -23,6 +23,7 @@
         :label='item.label'
         :align='item.align'
         :fixed='item.fixed'
+        show-overflow-tooltip
         :width='item.width ? item.width : "120"'
         v-else-if='item.columsType === "slot"'
       >
@@ -33,6 +34,7 @@
       <!--   数据渲染     -->
       <el-table-column
         v-else
+        show-overflow-tooltip
         :align='item.align'
         :fixed='item.fixed'
         :key='item.prop'
@@ -45,26 +47,27 @@
     <!-- 操作栏   -->
     <el-table-column
       v-if="btnGroup && btnGroup.type==='operation'"
-      :fixed="btnGroup.fixed"
-      :label="btnGroup.label"
-      :align="btnGroup.align"
-      :width="btnGroup.width"
-      :min-width="btnGroup.minWidth"
+      :fixed='btnGroup.fixed'
+      :label='btnGroup.label'
+      :align='btnGroup.align'
+      :width='btnGroup.width'
+      :min-width='btnGroup.minWidth'
     >
-      <template #default="{row}">
-        <template v-for="(btn, i) in btnGroup.group">
-          <el-button
-            :key="i"
-            :type="btn.type"
-            :size="btn.size ? btn.size:'mini'"
-            :icon="btn.icon"
-            :disabled="isDisabledWidget(btn,row)"
-            v-if="isShowWidget(btn,row)"
-            style="margin-left: 5px"
-            @click.native="btn.click(row)"
-          >{{ btn.name }}
-          </el-button>
-        </template>
+      <template #default='{row}'>
+        <div>
+          <template v-for='(btn, i) in btnGroup.group'>
+            <el-button
+              :key='i'
+              :type='btn.type'
+              :size="btn.size ? btn.size:'mini'"
+              :icon='btn.icon'
+              :disabled='isDisabledWidget(btn,row)'
+              v-if='isShowWidget(btn,row)'
+              @click.native='btn.click(row)'
+            >{{ btn.name }}
+            </el-button>
+          </template>
+        </div>
       </template>
     </el-table-column>
   </el-table>
@@ -72,13 +75,13 @@
     class='pagination'
     v-bind='$attrs'
     v-if='pagination'
-    @size-change="handleSizeChange"
-    @current-change="handleCurrentChange"
-    :current-page="pageConfig.currentPage"
-    :page-sizes="pageConfig.pageSizes"
-    :page-size="pageConfig.pageSize"
-    layout="total, sizes, prev, pager, next, jumper"
-    :total="pageConfig.total"
+    @size-change='handleSizeChange'
+    @current-change='handleCurrentChange'
+    :current-page='pageConfig.currentPage'
+    :page-sizes='pageConfig.pageSizes'
+    :page-size='pageConfig.pageSize'
+    layout='total, sizes, prev, pager, next, jumper'
+    :total='pageConfig.total'
     prev-text='上一页'
     next-text='下一页'
   >

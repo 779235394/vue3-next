@@ -32,7 +32,6 @@ import DTable from 'components/DTable.vue'
 export default defineComponent({
   name: 'DynamicTable',
   components: { DTable },
-  emits: ['handle-size-change', 'handle-current-change'],
   setup() {
     const router =useRouter()
     const tableState = reactive({
@@ -211,7 +210,8 @@ export default defineComponent({
         label: '操作',
         fixed: 'right',
         type: 'operation',
-        minWidth: '120',
+        width: '300',
+        minWidth: '300',
         align: 'center',
         group: [
           {
@@ -257,9 +257,11 @@ export default defineComponent({
     const tableMethods = reactive({
       handleSizeChange: (val) => {
         console.log(`每页 ${val} 条`)
+        tableState.pageConfig.pageSize = val
       },
       handleCurrentChange: (val) => {
         console.log(`当前页: ${val}`)
+        tableState.pageConfig.currentPage = val
       },
     })
 

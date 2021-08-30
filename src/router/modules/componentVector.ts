@@ -17,15 +17,9 @@ const componentVector: any = [
     path: '/componentVector',
     name: 'ComponentVector',
     component: Layout,
-    redirect: '/table',
+    redirect: '/dynamicTable',
     meta: { title: '物料广场', noCache: true, icon: 'el-icon-smoking', sort: 2 },
     children: [
-      {
-        path: '/table',
-        name: 'Table',
-        component: () => import('../../views/componentVector/table.vue'),
-        meta: { title: '表格', noCache: true, icon: 'el-icon-smoking' },
-      },
       {
         path: '/dynamicTable',
         name: 'DynamicTable',

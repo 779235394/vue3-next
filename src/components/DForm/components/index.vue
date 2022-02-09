@@ -3,18 +3,18 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 15:18:59
+ * @LastEditTime: 2022-01-27 16:06:29
 -->
 <template>
   <component
-      :is="`zh${item.eType}`"
+      :is="isCom[`zh${item.eType}`]"
       :item="item"
       :form-data="formData"
       @event="event">
   </component>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import zhButton from './zhButton.vue'
 import zhInput from './zhInput.vue'
 import zhRadio from './zhRadio.vue'
@@ -34,43 +34,32 @@ import zhTag from './zhTag.vue'
 import zhSwitch from './zhSwitch.vue'
 import zhCascader from './zhCascader.vue'
 
-export default {
-  name: 'Index',
-  components: {
-    zhButton,
-    zhInput,
-    zhRadio,
-    zhRadioButton,
-    zhCheck,
-    zhCheckButton,
-    zhDatePicker,
-    zhInputNumber,
-    zhSelect,
-    zhSlider,
-    zhSpan,
-    zhIcon,
-    zhColorPicker,
-    zhRate,
-    zhTimePicker,
-    zhTag,
-    zhSwitch,
-    zhCascader,
-  },
-  emits: ['event'],
-  props: {
-    item: {},
-    formData: {},
-  },
-  setup(props, content) {
-    const event = (params: any) => {
-      content.emit('event', { ...params, data: props.formData })
-    }
-    return {
-      event,
-    }
-  },
-
+const emits = defineEmits(['event'])
+const { item, formData } = defineProps(['item', 'formData'])
+const isCom = {
+  zhButton,
+  zhInput,
+  zhRadio,
+  zhRadioButton,
+  zhCheck,
+  zhCheckButton,
+  zhDatePicker,
+  zhInputNumber,
+  zhSelect,
+  zhSlider,
+  zhSpan,
+  zhIcon,
+  zhColorPicker,
+  zhRate,
+  zhTimePicker,
+  zhTag,
+  zhSwitch,
+  zhCascader,
 }
+const event = (params: any) => {
+  emits('event', { ...params, data: formData })
+}
+
 </script>
 
 <style scoped>

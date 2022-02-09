@@ -1,5 +1,13 @@
+/*
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2021-07-09 10:43:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-09 16:07:56
+ */
 
 import { createRouter, createWebHashHistory } from 'vue-router'
+import Layout from '@/layout/components/Main/main.vue'
 const modules = import.meta.globEager('./modules/**/*.ts')
 
 /**
@@ -36,8 +44,17 @@ const router: any = createRouter({
         {
           path: '/dashboard',
           name: 'Dashboard',
-          component: () => import('../views/dashboard.vue'),
+          component: Layout,
+          redirect: '/dashboard',
           meta: { title: '首页', noCache: true, icon: 'el-icon-house', affix: true },
+          children: [
+            {
+              path: '/dashboard',
+              name: 'Dashboard',
+              component: () => import('../views/dashboard.vue'),
+              meta: { title: '首页', noCache: true, icon: 'el-icon-house' },
+            },
+          ],
         },
         ...routeModuleList,
       ],
@@ -49,5 +66,4 @@ const router: any = createRouter({
     },
   ],
 })
-
 export default router

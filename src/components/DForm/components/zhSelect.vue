@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 11:41:13
+ * @LastEditTime: 2022-02-08 10:54:03
 -->
 <template>
   <el-select
@@ -29,40 +29,30 @@
   </el-select>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { computed } from 'vue'
-
-export default {
-  name: 'ZhSelect',
-  emits: ['event'],
-  props: {
-    item: { type: Object, default: () => {} },
-    formData: { type: Object, default: () => {} },
-  },
-  setup(prop, context) {
-    const change = () => {
-      context.emit('event', {
-        type: 'change',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
-    const options = computed(() => {
-      if (prop.item.options instanceof Array) {
-        return prop.item.options
-      } else {
-        const list = prop.item.options.split(',')
-        return list.map((item) => {
-          return { value: item, label: item }
-        })
-      }
-    })
-    return {
-      options,
-      change,
-    }
-  },
+const emits = defineEmits(['event'])
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
+const change = () => {
+  emits('event', {
+    type: 'change',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
 }
+const options = computed(() => {
+  if (item.options instanceof Array) {
+    return item.options
+  } else {
+    const list = item.options.split(',')
+    return list.map((item) => {
+      return { value: item, label: item }
+    })
+  }
+})
 </script>
 
 <style scoped>

@@ -1,9 +1,9 @@
 <!--
  * @Descripttion:
- * @Author: hejunlan
- * @Date: 2021-07-09 10:43:04
+ * @Author: huangzihong
+ * @Date: 2022-01-14 14:07:02
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-12 17:18:18
+ * @LastEditTime: 2022-02-09 15:00:26
 -->
 <template>
     <router-view v-slot="{ Component }">
@@ -14,21 +14,13 @@
     </router-view>
 </template>
 
-<script>
-import { defineComponent, computed } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 import { useStore } from 'vuex'
-export default defineComponent({
-  name: 'Main',
-  setup() {
-    const store = useStore()
-    const cachedViews = computed(() => {
-      console.log(store.state.tagViews.cachedViews)
-      return store.state.tagViews.cachedViews
-    })
-    return {
-      cachedViews,
-    }
-  },
+
+const store = useStore()
+const cachedViews = computed(() => {
+  return store.state.tagViews.cachedViews
 })
 </script>
 

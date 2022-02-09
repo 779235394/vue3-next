@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 15:20:06
+ * @LastEditTime: 2022-02-08 09:53:35
 -->
 <template>
   <el-color-picker
@@ -17,26 +17,18 @@
   </el-color-picker>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'ZhColorPicker',
-  emits: ['event'],
-  props: {
-    item: { type: Object, default: () => {} },
-    formData: { type: Object, default: () => {} },
-  },
-  setup(prop, context) {
-    const change = () => {
-      context.emit('event', {
-        type: 'change',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
-    return {
-      change,
-    }
-  },
+<script setup lang="ts">
+const emits = defineEmits(['event'])
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
+const change = () => {
+  emits('event', {
+    type: 'change',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
 }
 </script>
 

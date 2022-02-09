@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2021-03-15 23:38:42
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-01-28 09:42:54
+-->
 <template>
   <el-button
       :type="item.type"
@@ -17,27 +24,20 @@
   </el-button>
 </template>
 
-<script lang="ts">
-export default {
-  emits: ['event'],
-  props: {
-    item: { type: Object, default: () => {} },
-    formData: { type: Object, default: () => {} },
-  },
-  setup(prop, context) {
-    const click = () => {
-      context.emit('event', {
-        type: 'click',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
+<script setup lang="ts">
+const emits = defineEmits(['event'])
 
-    return { click }
-  },
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
+
+const click = () => {
+  emits('event', {
+    type: 'click',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
 }
 </script>
 
-<style scoped lang="less" rel="stylesheet/less">
-
-</style>

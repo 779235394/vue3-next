@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 11:41:22
+ * @LastEditTime: 2022-01-27 16:26:26
 -->
 <template>
    <span :class="item.class" :style="item.style">
@@ -11,18 +11,11 @@
     </span>
 </template>
 
-<script lang="ts">
-
-export default {
-  name: 'ZhSpan',
-  props: {
-    item: { type: Object, default: () => {} },
-    formData: { type: Object, default: () => {} },
-  },
-  setup() {
-
-  },
-}
+<script setup lang="ts">
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
 </script>
 
 <style scoped>

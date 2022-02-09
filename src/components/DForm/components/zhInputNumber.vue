@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 11:38:07
+ * @LastEditTime: 2022-02-08 10:29:06
 -->
 <template>
   <el-input-number
@@ -26,50 +26,41 @@
   </el-input-number>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { onBeforeMount } from 'vue'
 
-export default {
-  name: 'ZhInputNumber',
-  emits: ['event'],
-  props: {
-    item: { type: Object, default: () => {} },
-    formData: { type: Object, default: () => {} },
-  },
-  setup(prop, context) {
-    onBeforeMount(() => {
-      if (!prop.formData[prop.item.prop]) {
-        prop.formData[prop.item.prop] = 1
-      }
-    })
-    const change = () => {
-      context.emit('event', {
-        type: 'change',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
-    const focus = () => {
-      context.emit('event', {
-        type: 'focus',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
-    const blur = () => {
-      context.emit('event', {
-        type: 'blur',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
-    return {
-      change,
-      blur,
-      focus,
-    }
-  },
+const emits = defineEmits(['event'])
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
+onBeforeMount(() => {
+  if (!formData[item.prop]) {
+    formData[item.prop] = 1
+  }
+})
+const change = () => {
+  emits('event', {
+    type: 'change',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
 }
+const focus = () => {
+  emits('event', {
+    type: 'focus',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
+}
+const blur = () => {
+  emits('event', {
+    type: 'blur',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
+}
+
 </script>
 
 <style scoped>

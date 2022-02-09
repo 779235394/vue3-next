@@ -9,7 +9,7 @@
     :tableData='tableData'
     :pageConfig='pageConfig'
     :btnGroup="btnGroup"
-    height='auto'
+    height='600'
     pagination
     size='mini'
     @handle-size-change='handleSizeChange'
@@ -26,200 +26,240 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue'
+export default { name: 'DynamicTable' }
+</script>
+<script setup lang="ts">
+import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import DTable from 'components/DTable.vue'
-export default defineComponent({
-  name: 'DynamicTable',
-  components: { DTable },
-  setup() {
-    const router =useRouter()
-    const tableState = reactive({
-      tableColumns: [
-        { type: 'selection', align: 'center', fixed: true },
-        { prop: 'name', label: '姓名', align: 'center' },
-        { prop: 'date', label: '日期', align: 'center' },
-        { prop: 'province', label: '省市', align: 'center' },
-        {
-          prop: 'city',
-          label: '地址',
-          columsType: 'slot',
-          slotName: 'ad',
-          align: 'center',
-        },
-        { prop: 'address', label: '地址' },
-        {
-          prop: 'tag',
-          label: '标签',
-          columsType: 'slot',
-          slotName: 'tag',
-          align: 'center',
-        },
-      ],
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          tag: '家',
-        },
+const router =useRouter()
+const tableState = reactive({
+  tableColumns: [
+    { type: 'selection', align: 'center', fixed: true },
+    { prop: 'name', label: '姓名', align: 'center' },
+    { prop: 'date', label: '日期', align: 'center' },
+    { prop: 'province', label: '省市', align: 'center' },
+    {
+      prop: 'city',
+      label: '地址',
+      columsType: 'slot',
+      slotName: 'ad',
+      align: 'center',
+    },
+    { prop: 'address', label: '地址' },
+    {
+      prop: 'tag',
+      label: '标签',
+      columsType: 'slot',
+      slotName: 'tag',
+      align: 'center',
+    },
+  ],
+  tableData: [
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    }, {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    }, {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    }, {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
+    {
+      date: '2016-05-02',
+      name: '王小虎',
+      province: '上海',
+      city: '普陀区',
+      address: '上海市普陀区金沙江路 1518 弄',
+      tag: '家',
+    },
 
-      ],
-      pageConfig: {
-        currentPage: 1,
-        pageSizes: [10, 20, 30, 40, 50, 100],
-        pageSize: 10,
-        total: 200,
+  ],
+  pageConfig: {
+    currentPage: 1,
+    pageSizes: [10, 20, 30, 40, 50, 100],
+    pageSize: 10,
+    total: 200,
+  },
+  btnGroup: {
+    label: '操作',
+    fixed: 'right',
+    type: 'operation',
+    width: '300',
+    minWidth: '300',
+    align: 'center',
+    group: [
+      {
+        size: 'mini',
+        name: '编辑',
+        type: 'primary',
+        icon: 'el-icon-edit',
+        isShow: () => {
+          return true
+        },
+        click: (row) => {
+          console.log('row:', row)
+          router.push('/tableDetails/1')
+        },
       },
-      btnGroup: {
-        label: '操作',
-        fixed: 'right',
-        type: 'operation',
-        width: '300',
-        minWidth: '300',
-        align: 'center',
-        group: [
-          {
-            size: 'mini',
-            name: '编辑',
-            type: 'primary',
-            icon: 'el-icon-edit',
-            isShow: () => {
-              return true
-            },
-            click: (row) => {
-              console.log('row:', row)
-              router.push('/tableDetails/1')
-            },
-          },
-          {
-            size: 'mini',
-            name: '禁用',
-            type: 'primary',
-            icon: 'el-icon-edit',
-            isShow: () => {
-              return true
-            },
-            click: (row) => {
-              console.log(row)
-            },
-          },
-          {
-            size: 'mini',
-            name: '删除',
-            type: 'danger',
-            icon: 'el-icon-edit',
-            isShow: () => {
-              return true
-            },
-            click: (row) => {
-              console.log(row)
-            },
-          },
-        ],
+      {
+        size: 'mini',
+        name: '禁用',
+        type: 'primary',
+        icon: 'el-icon-edit',
+        isShow: () => {
+          return true
+        },
+        click: (row) => {
+          console.log(row)
+        },
       },
-    })
-    const tableMethods = reactive({
-      handleSizeChange: (val) => {
-        console.log(`每页 ${val} 条`)
-        tableState.pageConfig.pageSize = val
+      {
+        size: 'mini',
+        name: '删除',
+        type: 'danger',
+        icon: 'el-icon-edit',
+        isShow: () => {
+          return true
+        },
+        click: (row) => {
+          console.log(row)
+        },
       },
-      handleCurrentChange: (val) => {
-        console.log(`当前页: ${val}`)
-        tableState.pageConfig.currentPage = val
-      },
-    })
-
-    return {
-      ...toRefs(tableState),
-      ...toRefs(tableMethods),
-    }
+    ],
   },
 })
+const { tableColumns, tableData, pageConfig, btnGroup } = toRefs(tableState)
+const handleSizeChange = (val:any) => {
+  console.log(`每页 ${val} 条`)
+  tableState.pageConfig.pageSize = val
+}
+const handleCurrentChange = (val:any) => {
+  console.log(`当前页: ${val}`)
+  tableState.pageConfig.currentPage = val
+}
 </script>
-
-<style scoped>
-
-</style>

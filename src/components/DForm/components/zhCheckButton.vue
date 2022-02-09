@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-07-09 11:39:54
+ * @LastEditTime: 2022-01-28 10:08:03
 -->
 <template>
   <el-checkbox-group
@@ -24,45 +24,36 @@
   </el-checkbox-group>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { computed, onBeforeMount } from 'vue'
+const emits = defineEmits(['event'])
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
 
-export default {
-  name: 'ZhCheckButton',
-  emits: ['event'],
-  props: {
-    item: { type: Object, default: () => {} },
-    formData: { type: Object, default: () => {} },
-  },
-  setup(prop, context) {
-    onBeforeMount(() => {
-      if (!prop.formData[prop.item.prop]) {
-        prop.formData[prop.item.prop] = []
-      }
-    })
-    const change = () => {
-      context.emit('event', {
-        type: 'change',
-        prop: prop.item.prop,
-        value: prop.formData[prop.item.prop],
-      })
-    }
-    const options = computed(() => {
-      if (prop.item.options instanceof Array) {
-        return prop.item.options
-      } else {
-        const list = prop.item.options.split(',')
-        return list.map((item) => {
-          return { value: item, label: item }
-        })
-      }
-    })
-    return {
-      options,
-      change,
-    }
-  },
+onBeforeMount(() => {
+  if (!formData[item.prop]) {
+    formData[item.prop] = []
+  }
+})
+const change = () => {
+  emits('event', {
+    type: 'change',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
 }
+const options = computed(() => {
+  if (item.options instanceof Array) {
+    return item.options
+  } else {
+    const list = item.options.split(',')
+    return list.map((item) => {
+      return { value: item, label: item }
+    })
+  }
+})
 </script>
 
 <style scoped>

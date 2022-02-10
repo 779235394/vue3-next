@@ -19,18 +19,23 @@
 
       >
         {{ tag.meta.title }}
-        <span
+        <!-- <span
           v-if="!isAffix(tag) && tag.name !== 'Dashboard'"
           class='el-icon-close'
           @click.prevent.stop='closeSelectedTag(tag)'
-        />
+        /> -->
+        <el-icon v-if="!isAffix(tag) && tag.name !== 'Dashboard'" @click.prevent.stop='closeSelectedTag(tag)'>
+            <Close />
+          </el-icon>
       </router-link>
     </ScrollPane>
     <div class='tags-close-box'>
       <el-dropdown @command="handleTags">
-        <el-button size='mini' type='primary'>
+        <el-button size='small' type='primary'>
           标签选项
-          <i class='el-icon-arrow-down el-icon--right'></i>
+          <el-icon class="el-icon--right" >
+            <arrow-down />
+          </el-icon>
         </el-button>
         <template #dropdown>
           <el-dropdown-menu size='small'>
@@ -187,7 +192,8 @@ export default defineComponent({
     }
 
     watch(() => currentRoute.name, () => {
-      if (currentRoute.name !== 'login') {
+      if (currentRoute.name !== 'Login') {
+        console.log(currentRoute.name, currentRoute.name !== 'Login')
         addTags()
       }
     })

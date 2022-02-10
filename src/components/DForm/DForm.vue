@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-08 17:30:05
+ * @LastEditTime: 2022-02-10 15:36:54
 -->
 <template>
   <el-form
@@ -56,7 +56,7 @@ const { disabled, needToast, labelPosition, formData, rules, formCols, isInline,
   formCols: { type: Array as () => Array<any>, default: () => [[{}]] }, // 表单分栏
   isInline: { type: Boolean, default: false }, // 行内表单模式
   statusIcon: { type: Boolean, default: false }, // 是否在输入框中显示校验结果反馈图标
-  size: { type: String, default: 'medium' }, // 用于控制该表单内组件的尺寸 medium / small / mini
+  size: { type: String, default: 'default' }, // 用于控制该表单内组件的尺寸 large / default / small
   labelSuffix: { type: String, default: '：' }, // 表单域标签的后缀
   labelWidth: { type: String, default: '120px' }, // 表单域标签的宽度
 })

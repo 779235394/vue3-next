@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion: 
+ * @Author: huangzihong
+ * @Date: 2022-02-09 15:37:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-10 17:53:51
+-->
 <p align="center">
   <a href="https://github.com/779235394/vue3-next" target="_blank">
     <img width="180" src="https://github.com/rcyj-FED/vue3-composition-admin-docs/blob/main/docs/.vuepress/public/icons/android-chrome-192x192.png" alt="logo">
@@ -52,7 +59,7 @@ import 'element-plus/packages/theme-chalk/src/index.scss'
     path: '/dynamicTable',
     name: 'DynamicTable',
     component: () => import('../../views/componentVector/dynamicTable.vue'),
-    meta: { title: '动态表格', noCache: true, icon: 'el-icon-smoking', keepAlive: true },
+    meta: { title: '动态表格', noCache: true, icon: 'Smoking', keepAlive: true },
   }
 
   // view/componentVector/dynamicTable

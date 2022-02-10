@@ -15,7 +15,7 @@ export default defineComponent({
   setup(_, context) {
     const scrollContainerRef = ref(null)
     const scrollWrapper = computed(() => {
-      return (scrollContainerRef.value as any).$refs.wrap as HTMLElement
+      return (scrollContainerRef.value as any).$refs.wrap$ as HTMLElement
     })
     const { ctx } = getCurrentInstance() as any
     const tagSpacing = 4

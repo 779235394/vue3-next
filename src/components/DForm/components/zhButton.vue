@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-01-28 09:42:54
+ * @LastEditTime: 2022-02-10 10:52:09
 -->
 <template>
   <el-button
@@ -16,9 +16,10 @@
       :style="item.style"
       :class="item.class"
       :plain="item.plain"
-      :circle="item.circle "
+      :circle="item.circle"
       :autofocus="item.autofocus"
       :native-type="item.nativeType"
+      :color="item.color"
       @click="click">
     {{ item.value }}
   </el-button>

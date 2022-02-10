@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-09 09:38:36
+ * @LastEditTime: 2022-02-10 18:25:40
 -->
 <template>
   <DForm ref="DFormRef"  :rules="rules" :needToast="true" :formData="formData" @event="event" :formCols="formCols">
@@ -210,8 +210,8 @@ const formState = reactive({
         noShow: false,
         span: 12,
       },
-      { eType: 'Button', value: '提交', type: 'success', prop: 'submit', span: 2 },
-      { eType: 'Button', value: '重置', type: 'success', prop: 'reset', span: 2 },
+      { eType: 'Button', value: '提交', loading: false, type: 'primary', style: 'color:#fff', circle: false, prop: 'submit', span: 2 },
+      { eType: 'Button', value: '重置', loading: false, type: 'primary', style: 'color:#fff', circle: false, prop: 'reset', span: 2 },
     ],
   ],
 })

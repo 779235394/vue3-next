@@ -11,7 +11,7 @@
     :btnGroup="btnGroup"
     height='600'
     pagination
-    size='mini'
+    size='small'
     @handle-size-change='handleSizeChange'
     @handle-current-change='handleCurrentChange'
   >
@@ -214,10 +214,10 @@ const tableState = reactive({
     align: 'center',
     group: [
       {
-        size: 'mini',
+        size: 'small',
         name: '编辑',
         type: 'primary',
-        icon: 'el-icon-edit',
+        icon: 'Edit',
         isShow: () => {
           return true
         },
@@ -227,10 +227,10 @@ const tableState = reactive({
         },
       },
       {
-        size: 'mini',
+        size: 'small',
         name: '禁用',
         type: 'primary',
-        icon: 'el-icon-edit',
+        icon: 'Edit',
         isShow: () => {
           return true
         },
@@ -239,10 +239,10 @@ const tableState = reactive({
         },
       },
       {
-        size: 'mini',
+        size: 'small',
         name: '删除',
         type: 'danger',
-        icon: 'el-icon-edit',
+        icon: 'Edit',
         isShow: () => {
           return true
         },

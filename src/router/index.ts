@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-07-09 10:43:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-09 16:07:56
+ * @LastEditTime: 2022-02-10 18:10:53
  */
 
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -46,13 +46,13 @@ const router: any = createRouter({
           name: 'Dashboard',
           component: Layout,
           redirect: '/dashboard',
-          meta: { title: '首页', noCache: true, icon: 'el-icon-house', affix: true },
+          meta: { title: '首页', noCache: true, icon: 'House', affix: true },
           children: [
             {
               path: '/dashboard',
               name: 'Dashboard',
               component: () => import('../views/dashboard.vue'),
-              meta: { title: '首页', noCache: true, icon: 'el-icon-house' },
+              meta: { title: '首页', noCache: true, icon: 'House' },
             },
           ],
         },

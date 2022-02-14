@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-10 17:17:24
+ * @LastEditTime: 2022-02-14 10:26:54
 -->
 <template>
   <div v-if="!item.hidden">
@@ -18,7 +18,7 @@
           <el-icon class="sub-el-icon">
             <component :is="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"></component>
           </el-icon>
-          <template v-slot:title v-if="item.meta">
+          <template #title v-if="item.meta">
             <span>{{ onlyOneChild.meta.title }}</span>
           </template>
         </el-menu-item>

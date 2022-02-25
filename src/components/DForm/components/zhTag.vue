@@ -26,7 +26,6 @@
 
 <script setup lang="ts">
 
-
 const emits = defineEmits(['event'])
 
 const { item } = defineProps({

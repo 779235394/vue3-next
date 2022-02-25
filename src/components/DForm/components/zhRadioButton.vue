@@ -23,7 +23,6 @@
 
 <script setup lang="ts">
 
-
 const emits = defineEmits(['event'])
 const { item, formData } = defineProps({
   item: { type: Object, default: () => {} },

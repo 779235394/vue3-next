@@ -16,8 +16,6 @@
 
 <script setup lang="ts">
 
-
-
 const store = useStore()
 const cachedViews = computed(() => {
   return store.state.tagViews.cachedViews

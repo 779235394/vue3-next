@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2022-02-09 15:37:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-25 15:29:44
+ * @LastEditTime: 2022-02-25 16:21:56
 -->
 /**
 * @Author: junlan.he
@@ -32,9 +32,7 @@
   </div>
 </template>
 
-<script>
-
-import { ElMessage } from 'element-plus'
+<script lang="ts">
 import { ruleForm, ParticlesOptions } from './login'
 
 export default defineComponent({

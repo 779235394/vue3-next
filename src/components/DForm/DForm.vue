@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-25 15:32:23
+ * @LastEditTime: 2022-02-25 16:22:08
 -->
 <template>
   <el-form
@@ -44,7 +44,6 @@
 <script setup lang="ts">
 import type { ElForm } from 'element-plus'
 import mElement from './mElement.vue'
-import { ElMessage } from 'element-plus'
 
 const { disabled, needToast, labelPosition, formData, rules, formCols, isInline, statusIcon, size, labelSuffix, labelWidth } = defineProps({
   disabled: { type: Boolean, default: false }, // 是否禁用

@@ -10,6 +10,7 @@
     "defineComponent": true,
     "effectScope": true,
     "EffectScope": true,
+    "ElMessage": true,
     "getCurrentInstance": true,
     "getCurrentScope": true,
     "h": true,

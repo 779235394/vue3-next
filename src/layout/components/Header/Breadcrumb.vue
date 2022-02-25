@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2022-02-09 15:37:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-25 15:30:24
+-->
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
@@ -10,8 +17,7 @@
 </template>
 
 <script>
-import { toRefs, defineComponent, reactive, onMounted } from 'vue'
-import { onBeforeRouteUpdate, useRouter } from 'vue-router'
+import { onBeforeRouteUpdate } from 'vue-router'
 
 export default defineComponent({
   name: 'Breadcrumb',

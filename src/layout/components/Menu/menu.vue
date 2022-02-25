@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2022-02-09 15:37:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-25 15:33:08
+-->
 <template>
   <el-menu
     :default-active='activeMenu'
@@ -13,10 +20,8 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+
 import sidebarItem from './sidebarItem.vue'
-import { useStore } from 'vuex'
 
 export default defineComponent({
   name: 'Home',

@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2022-02-09 15:37:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-25 15:29:44
+-->
 /**
 * @Author: junlan.he
 * @date: 2021/4/27
@@ -26,10 +33,9 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+
 import { ElMessage } from 'element-plus'
 import { ruleForm, ParticlesOptions } from './login'
-import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Login',

@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
- * @LastEditTime: 2021-05-07 15:39:17
+ * @LastEditTime: 2022-02-25 15:32:48
 -->
 <template>
   <el-container :class='classObj' class='app-wrapper'>
@@ -23,10 +23,9 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted, toRefs, reactive, computed } from 'vue'
 import Menu from '@/layout/components/Menu/menu.vue'
 import Header from '@/layout/components/Header/index.vue'
-import { useStore } from 'vuex'
+
 import Main from '@/layout/components/Main/main.vue'
 import TagsView from '@/layout/components/TagsView/tagsview.vue'
 

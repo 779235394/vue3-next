@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-10 18:25:40
+ * @LastEditTime: 2022-02-25 15:34:56
 -->
 <template>
   <DForm ref="DFormRef"  :rules="rules" :needToast="true" :formData="formData" @event="event" :formCols="formCols">
@@ -16,9 +16,6 @@
 export default { name: 'DynamicForm' }
 </script>
 <script setup lang="ts">
-import { reactive, toRefs } from 'vue'
-import DForm from 'components/DForm/DForm.vue'
-
 const formState = reactive({
   rules: {
     date1: [{ required: true, message: '请选择活动区域', trigger: 'change' }],

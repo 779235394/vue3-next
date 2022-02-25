@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2022-02-09 15:37:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-25 15:32:07
+-->
 /**
 * @Author: junlan.he
 * @date: 2021/4/23
@@ -8,8 +15,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Dashboard',

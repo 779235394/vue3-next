@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-10 15:36:54
+ * @LastEditTime: 2022-02-25 15:32:23
 -->
 <template>
   <el-form
@@ -42,9 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 import type { ElForm } from 'element-plus'
-import mElement from './components/index.vue'
+import mElement from './mElement.vue'
 import { ElMessage } from 'element-plus'
 
 const { disabled, needToast, labelPosition, formData, rules, formCols, isInline, statusIcon, size, labelSuffix, labelWidth } = defineProps({

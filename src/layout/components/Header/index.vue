@@ -47,11 +47,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
 import Hamburger from './Hamburger.vue'
 import Breadcrumb from './Breadcrumb.vue'
-import { useStore } from 'vuex'
-import { useRoute, useRouter } from 'vue-router'
 
 export default defineComponent({
   components: {

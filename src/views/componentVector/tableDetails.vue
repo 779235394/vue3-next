@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-07-09 10:58:02
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-01-27 15:27:21
+ * @LastEditTime: 2022-02-25 15:30:09
 -->
 <template>
   table表详情页
@@ -11,9 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router'
-import { useStore } from 'vuex'
-
 const router = useRouter()
 const route = useRoute()
 const store= useStore()

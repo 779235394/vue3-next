@@ -50,17 +50,6 @@
 </template>
 
 <script lang='ts'>
-import { useStore } from 'vuex'
-import {
-  computed,
-  defineComponent,
-  onBeforeMount,
-  reactive,
-  ref,
-  toRefs,
-  watch,
-} from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import ScrollPane from './ScrollPane.vue'
 
 export default defineComponent({

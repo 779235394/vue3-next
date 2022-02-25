@@ -29,9 +29,6 @@
 export default { name: 'DynamicTable' }
 </script>
 <script setup lang="ts">
-import { reactive, toRefs } from 'vue'
-import { useRouter } from 'vue-router'
-import DTable from 'components/DTable.vue'
 const router =useRouter()
 const tableState = reactive({
   tableColumns: [

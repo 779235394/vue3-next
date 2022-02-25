@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-08 10:29:06
+ * @LastEditTime: 2022-02-25 15:32:38
 -->
 <template>
   <el-input-number
@@ -27,7 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
 
 const emits = defineEmits(['event'])
 const { item, formData } = defineProps({

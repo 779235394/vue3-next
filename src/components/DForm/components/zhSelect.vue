@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+
 const emits = defineEmits(['event'])
 const { item, formData } = defineProps({
   item: { type: Object, default: () => {} },

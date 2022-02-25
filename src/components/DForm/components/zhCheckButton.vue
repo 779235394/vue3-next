@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-01-28 10:08:03
+ * @LastEditTime: 2022-02-25 15:32:34
 -->
 <template>
   <el-checkbox-group
@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeMount } from 'vue'
 const emits = defineEmits(['event'])
 const { item, formData } = defineProps({
   item: { type: Object, default: () => {} },

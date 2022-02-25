@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2022-02-09 15:37:04
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-25 15:31:34
+-->
 <template>
   <el-config-provider :locale="locale">
     <RouterView/>
@@ -5,7 +12,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 

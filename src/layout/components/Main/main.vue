@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+
+
 
 const store = useStore()
 const cachedViews = computed(() => {

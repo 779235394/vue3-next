@@ -9,7 +9,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, toRefs, computed, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue'
 export default defineComponent({
   emits: ['scroll'],
   setup(_, context) {

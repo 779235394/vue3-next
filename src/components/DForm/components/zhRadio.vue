@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-08 10:30:20
+ * @LastEditTime: 2022-02-25 15:31:47
 -->
 <template>
   <el-radio-group
@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 
 const emits = defineEmits(['event'])
 const { item, formData } = defineProps({

@@ -3,7 +3,6 @@
  * @date: 2021/4/27
  * @desc:
  */
-import { reactive } from 'vue'
 
 export const ParticlesOptions: Object = reactive({
   fpsLimit: 60,

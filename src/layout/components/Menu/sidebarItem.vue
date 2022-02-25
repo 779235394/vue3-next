@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 15:17:30
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-14 10:26:54
+ * @LastEditTime: 2022-02-25 15:33:17
 -->
 <template>
   <div v-if="!item.hidden">
@@ -44,7 +44,6 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, toRefs } from 'vue'
 import { isExternal } from '@/utils/validate'
 import AppLink from './Link.vue'
 const { item, isNest, basePath } = defineProps({

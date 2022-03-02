@@ -4,11 +4,16 @@
 * @desc:
 */
 <template>
+  <Vue3JsonEditor
+    v-model='tableColumns'
+    :expandedOnStart='true'
+    @json-change='onJsonChange'/>
+
   <DTable
     :tableColumns='tableColumns'
     :tableData='tableData'
     :pageConfig='pageConfig'
-    :btnGroup="btnGroup"
+    :btnGroup='btnGroup'
     height='600'
     pagination
     size='small'
@@ -23,13 +28,16 @@
       <el-tag type='success'>{{ rowData.city }}</el-tag>
     </template>
   </DTable>
+
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 export default { name: 'DynamicTable' }
 </script>
-<script setup lang="ts">
-const router =useRouter()
+<script setup lang='ts'>
+import { Vue3JsonEditor } from 'vue3-json-editor'
+
+const router = useRouter()
 const tableState = reactive({
   tableColumns: [
     { type: 'selection', align: 'center', fixed: true },
@@ -251,12 +259,16 @@ const tableState = reactive({
   },
 })
 const { tableColumns, tableData, pageConfig, btnGroup } = toRefs(tableState)
-const handleSizeChange = (val:any) => {
+const handleSizeChange = (val: any) => {
   console.log(`每页 ${val} 条`)
   tableState.pageConfig.pageSize = val
 }
-const handleCurrentChange = (val:any) => {
+const handleCurrentChange = (val: any) => {
   console.log(`当前页: ${val}`)
   tableState.pageConfig.currentPage = val
+}
+
+const onJsonChange = (val) => {
+  console.log('value:', val)
 }
 </script>

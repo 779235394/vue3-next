@@ -3,9 +3,20 @@
  * @Author: huangzihong
  * @Date: 2021-03-15 23:38:42
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-25 15:34:56
+ * @LastEditTime: 2022-03-04 14:59:08
 -->
 <template>
+  <el-drawer
+      v-model="direction"
+      title="配置表单"
+      direction="ltr"
+      size="50%"
+    >
+    <Vue3JsonEditor
+      v-model='formCols'
+      :expandedOnStart='true'
+      @json-change='onJsonChange'/>
+  </el-drawer>
   <DForm ref="DFormRef"  :rules="rules" :needToast="true" :formData="formData" @event="event" :formCols="formCols">
       <template #test>
         <el-input v-model="formData.date5"></el-input>
@@ -16,6 +27,8 @@
 export default { name: 'DynamicForm' }
 </script>
 <script setup lang="ts">
+import { Vue3JsonEditor } from 'vue3-json-editor'
+const direction = ref(false)
 const formState = reactive({
   rules: {
     date1: [{ required: true, message: '请选择活动区域', trigger: 'change' }],
@@ -26,6 +39,9 @@ const formState = reactive({
     date27: 'span',
   },
   formCols: [
+    [
+      { eType: 'Button', value: '配置表单', type: 'primary', style: 'color:#fff', circle: false, prop: 'configure', span: 2 },
+    ],
     [
       {
         eType: 'Input',
@@ -215,5 +231,10 @@ const formState = reactive({
 const { rules, formData, formCols } = toRefs(formState)
 const event = (val:any) => {
   console.log(val)
+  if (val.prop == 'configure') direction.value=true
+}
+const onJsonChange = (val) => {
+  console.log('value:', val)
+  formCols.value = val
 }
 </script>

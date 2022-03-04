@@ -77,6 +77,7 @@
         "element-plus/es/components/config-provider/style/css",
         "element-plus/es/components/container/style/css",
         "element-plus/es/components/date-picker/style/css",
+        "element-plus/es/components/drawer/style/css",
         "element-plus/es/components/dropdown-item/style/css",
         "element-plus/es/components/dropdown-menu/style/css",
         "element-plus/es/components/dropdown/style/css",

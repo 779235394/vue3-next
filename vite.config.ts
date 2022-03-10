@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2022-02-09 15:37:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-25 15:15:33
+ * @LastEditTime: 2022-03-10 18:15:48
  */
 import { defineConfig } from 'vite'
 import path from 'path'
@@ -13,6 +13,7 @@ import Components from 'unplugin-vue-components/vite'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { createSvg } from './src/icons/index'
 export default defineConfig({
   base: '/vue3-next/',
   plugins: [
@@ -33,6 +34,7 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
       dts: './src/components.d.ts',
     }),
+    createSvg('./src/icons/svg/'),
   ],
   resolve: {
     alias: {

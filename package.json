@@ -27,6 +27,7 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@element-plus/icons": "0.0.11",
     "@types/node": "^14.18.12",
+    "clipboard": "^2.0.8",
     "element-plus": "^2.0.4",
     "less": "^4.1.2",
     "lint-staged": "^10.5.4",
@@ -36,6 +37,7 @@
     "vue": "^3.2.31",
     "vue-router": "^4.0.13",
     "vue3-json-editor": "^1.1.4",
+    "vuedraggable": "^4.1.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
@@ -43,6 +45,7 @@
     "@typescript-eslint/parser": "^4.33.0",
     "@vitejs/plugin-vue": "^1.10.2",
     "@vue/compiler-sfc": "^3.2.31",
+    "svg-sprite-loader": "^6.0.11",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-vue": "^7.20.0",
@@ -62,6 +65,7 @@
     "optimizeDeps": {
       "include": [
         "@element-plus/icons",
+        "clipboard",
         "element-plus",
         "element-plus/es",
         "element-plus/es/components/aside/style/css",
@@ -73,10 +77,13 @@
         "element-plus/es/components/checkbox-group/style/css",
         "element-plus/es/components/checkbox/style/css",
         "element-plus/es/components/col/style/css",
+        "element-plus/es/components/collapse-item/style/css",
+        "element-plus/es/components/collapse/style/css",
         "element-plus/es/components/color-picker/style/css",
         "element-plus/es/components/config-provider/style/css",
         "element-plus/es/components/container/style/css",
         "element-plus/es/components/date-picker/style/css",
+        "element-plus/es/components/divider/style/css",
         "element-plus/es/components/drawer/style/css",
         "element-plus/es/components/dropdown-item/style/css",
         "element-plus/es/components/dropdown-menu/style/css",
@@ -107,12 +114,15 @@
         "element-plus/es/components/table/style/css",
         "element-plus/es/components/tag/style/css",
         "element-plus/es/components/time-picker/style/css",
+        "element-plus/es/components/tooltip/style/css",
         "element-plus/lib/locale/lang/zh-cn",
+        "mitt",
         "particles.vue3",
         "vue",
         "vue-router",
         "vue3-json-editor",
         "vue3-json-editor/dist/vue3-json-editor.esm",
+        "vuedraggable",
         "vuex"
       ]
     }

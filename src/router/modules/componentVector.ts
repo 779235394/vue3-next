@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2021-07-09 10:58:02
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-10 18:05:55
+ * @LastEditTime: 2022-03-10 18:15:01
  */
 /**
  * @Author: huangzihong
@@ -31,6 +31,12 @@ const componentVector: any = [
         name: 'DynamicForm',
         component: () => import('../../views/componentVector/dynamicForm.vue'),
         meta: { title: '动态表单', noCache: true, icon: 'Smoking', keepAlive: true },
+      },
+      {
+        path: '/dtFormDesigner',
+        name: 'dtFormDesigner',
+        component: () => import('../../views/componentVector/dtFormDesigner.vue'),
+        meta: { title: '低代码表单', noCache: true, icon: 'Smoking', keepAlive: true },
       },
       {
         path: '/tableDetails/:id',

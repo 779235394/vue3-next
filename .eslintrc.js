@@ -118,7 +118,7 @@ module.exports = {
     'no-duplicate-case': 2,
     'no-empty-character-class': 2,
     'no-empty-pattern': 2,
-    'no-eval': 2,
+    'no-eval': 0,
     'no-ex-assign': 2,
     'no-extend-native': 2,
     'no-extra-bind': 2,
@@ -246,5 +246,7 @@ module.exports = {
       },
     ],
     'array-bracket-spacing': [2, 'never'],
+    'require-jsdoc': 0,
+    'valid-jsdoc': 0,
   },
 }

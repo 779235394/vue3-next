@@ -27,31 +27,7 @@
         item-key="id"
       >
           <template #item="{ element,index }">
-            <template v-if="'container' === element.category">
-              <component
-                :is="getWidgetName(element)"
-                :designerText="designerText"
-                :widget="element"
-                :designer="designer"
-                :key="element.id"
-                :parent-list="designer.widgetList"
-                :index-of-parent-list="index"
-                :parent-widget="null"
-              ></component>
-            </template>
-            <template v-else>
-              <component
-                :is="getWidgetName(element)"
-                :designerText="designerText"
-                :field="element"
-                :designer="designer"
-                :key="element.id"
-                :parent-list="designer.widgetList"
-                :index-of-parent-list="index"
-                :parent-widget="null"
-                :design-state="true"
-              ></component>
-            </template>
+           <field-element :designer="designer" :designerText="designerText" :element="element" :zhIndex="index"></field-element>
           </template>
       </draggable>
       </div>
@@ -63,50 +39,14 @@
 import Draggable from 'vuedraggable'
 // import './container-widget/index.js'
 import { designerText } from '../designerText'
-import inputWidget from './field-widget/inputWidget.vue'
-import textareaWidget from './field-widget/textareaWidget.vue'
-import numberWidget from './field-widget/numberWidget.vue'
-import radioWidget from './field-widget/radioWidget.vue'
-import checkboxWidget from './field-widget/checkboxWidget.vue'
-import selectWidget from './field-widget/selectWidget.vue'
-import timeWidget from './field-widget/timeWidget.vue'
-import timeRangeWidget from './field-widget/timeRangeWidget.vue'
-import dateWidget from './field-widget/dateWidget.vue'
-import dateRangeWidget from './field-widget/dateRangeWidget.vue'
-import switchWidget from './field-widget/switchWidget.vue'
-import rateWidget from './field-widget/rateWidget.vue'
-import colorWidget from './field-widget/colorWidget.vue'
-import sliderWidget from './field-widget/sliderWidget.vue'
-import staticTextWidget from './field-widget/staticTextWidget.vue'
-import htmlTextWidget from './field-widget/htmlTextWidget.vue'
-import buttonWidget from './field-widget/buttonWidget.vue'
-import dividerWidget from './field-widget/dividerWidget.vue'
-const isCom = {
-  inputWidget,
-  textareaWidget,
-  numberWidget,
-  radioWidget,
-  checkboxWidget,
-  selectWidget,
-  timeWidget,
-  timeRangeWidget,
-  dateWidget,
-  dateRangeWidget,
-  switchWidget,
-  rateWidget,
-  colorWidget,
-  sliderWidget,
-  staticTextWidget,
-  htmlTextWidget,
-  buttonWidget,
-  dividerWidget,
-}
+
 const { designer, formConfig, optionData, formJson } = defineProps({
   designer: { type: Object, default: () => { } },
   formConfig: { type: Object, default: () => { } },
   optionData: { type: Object, default: () => { } },
   formJson: { type: Object, default: () => { } },
 })
+
 const formJsonObj:any = ref(formJson)
 const formModel = ref({})
 const widgetRefList = ref({})
@@ -152,11 +92,6 @@ onMounted(() => {
   designer.registerFormWidget()
 })
 
-const getWidgetName = (widget) => {
-  console.log(widget.type + 'Widget')
-  return isCom[widget.type + 'Widget']
-}
-
 const disableFirefoxDefaultDrop = () => {
   const isFirefox = (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1)
   if (isFirefox) {
@@ -167,8 +102,8 @@ const disableFirefoxDefaultDrop = () => {
   }
 }
 
-const onDragEnd = (evt) => {
-  console.log('drag end000', evt)
+const onDragEnd = () => {
+  console.log('drag end000', designer.widgetList)
 }
 
 const onDragAdd = (evt) => {

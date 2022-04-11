@@ -3,11 +3,11 @@
  * @Author: huangzihong
  * @Date: 2021-04-26 10:21:18
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-02-25 15:32:48
+ * @LastEditTime: 2022-04-11 11:15:41
 -->
 <template>
   <el-container :class='classObj' class='app-wrapper'>
-    <el-aside width='200px' style='background: #515a6e'>
+    <el-aside :width='sidebar.opened?"200px":"54px"' style='background: #515a6e'>
       <Menu></Menu>
     </el-aside>
     <el-container class='main-box'>
@@ -15,49 +15,28 @@
         <Header></Header>
         <TagsView />
       </el-header>
-      <el-main>
+      <el-main class="layout-main">
         <Main></Main>
       </el-main>
     </el-container>
   </el-container>
 </template>
 
-<script lang='ts'>
+<script setup lang='ts'>
 import Menu from '@/layout/components/Menu/menu.vue'
 import Header from '@/layout/components/Header/index.vue'
 
 import Main from '@/layout/components/Main/main.vue'
 import TagsView from '@/layout/components/TagsView/tagsview.vue'
-
-export default defineComponent({
-  name: 'Home',
-  components: {
-    Main,
-    Menu,
-    Header,
-    TagsView,
-  },
-  setup: () => {
-    const state: any = reactive({
-      sidebar: {},
-    })
-    const store = useStore()
-    state.sidebar = store.getters['layout/sidebar']
-    const classObj = computed(() => {
-      return {
-        hideSidebar: !state.sidebar.opened,
-        openSidebar: state.sidebar.opened,
-        withoutAnimation: state.sidebar.withoutAnimation,
-      }
-    })
-
-    onMounted(() => {
-    })
-    return {
-      classObj,
-      ...toRefs(state),
-    }
-  },
+const store = useStore()
+const sidebar:any = store.getters['layout/sidebar']
+const classObj = computed(() => {
+  console.log(sidebar.value)
+  return {
+    hideSidebar: !sidebar.opened,
+    openSidebar: sidebar.opened,
+    withoutAnimation: sidebar.withoutAnimation,
+  }
 })
 </script>
 
@@ -69,7 +48,7 @@ export default defineComponent({
       height: auto !important;
     }
 
-    ::v-deep(.el-main ) {
+    ::v-deep(.layout-main) {
       padding: 20px !important;
       height: 100%;
       border: 1px solid #ffffff;

@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2022-03-08 11:08:34
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-03-10 15:59:08
+ * @LastEditTime: 2022-04-11 14:45:55
  */
 export const designerText = {
   componentLib: '组件库',
@@ -311,6 +311,7 @@ export const designerText = {
     formModelName: '数据对象名称',
     formRefName: '引用名称',
     formRulesName: '验证规则名称',
+    syntaxCheckWarning: 'JS代码存在语法错误，请仔细检查！',
 
     // data-table
     tableWidth: '宽度(px/%)',

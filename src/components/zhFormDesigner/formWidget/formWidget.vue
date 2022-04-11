@@ -85,13 +85,6 @@ const layoutType = computed(() => {
   return designer.getLayoutType()
 })
 
-onMounted(() => {
-  designer.initDesigner( !!getDesignerConfig.resetFormJson )
-  designer.loadPresetCssCode( getDesignerConfig.presetCssCode )
-  disableFirefoxDefaultDrop() /* 禁用Firefox默认拖拽搜索功能!! */
-  designer.registerFormWidget()
-})
-
 const disableFirefoxDefaultDrop = () => {
   const isFirefox = (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1)
   if (isFirefox) {
@@ -101,6 +94,11 @@ const disableFirefoxDefaultDrop = () => {
     }
   }
 }
+
+designer.initDesigner( !!getDesignerConfig.resetFormJson )
+designer.loadPresetCssCode( getDesignerConfig.presetCssCode )
+disableFirefoxDefaultDrop() /* 禁用Firefox默认拖拽搜索功能!! */
+designer.registerFormWidget()
 
 const onDragEnd = () => {
   console.log('drag end000', designer.widgetList)

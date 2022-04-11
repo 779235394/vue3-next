@@ -1,10 +1,3 @@
-/**
- * author: vformAdmin
- * email: vdpadmin@163.com
- * website: https://www.vform666.com
- * date: 2021.08.18
- * remark: 如果要分发VForm源码，需在本文件顶部保留此文件头信息！！
- */
 import { designerText } from './designerText'
 import { deepClone, generateId, overwriteObj } from '@/utils/util'
 import { containers, advancedFields, basicFields, customFields } from './widgetPanel/widgetsConfig'
@@ -13,7 +6,7 @@ const vueInstance = new Mitt()
 export function createDesigner() {
   const defaultFormConfig = {
     modelName: 'formData',
-    refName: 'vForm',
+    refName: 'zhForm',
     rulesName: 'rules',
     labelWidth: 80,
     labelPosition: 'left',
@@ -34,7 +27,7 @@ export function createDesigner() {
     formConfig: { cssCode: '' },
 
     selectedId: null,
-    selectedWidget: null,
+    selectedWidget: {},
     selectedWidgetName: null, // 选中组件名称（唯一）
     vueInstance: vueInstance,
 
@@ -51,7 +44,7 @@ export function createDesigner() {
     initDesigner(resetFormJson) {
       this.widgetList = []
       this.formConfig = deepClone(defaultFormConfig)
-
+      console.log(this.formConfig)
       if (!resetFormJson) {
         this.initHistoryData()
       }
@@ -880,6 +873,7 @@ export function createDesigner() {
     },
 
     saveCurrentHistoryStep() {
+      console.log(this.historyData)
       this.historyData.steps[this.historyData.index] = deepClone({
         widgetList: this.widgetList,
         formConfig: this.formConfig,

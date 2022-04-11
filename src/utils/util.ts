@@ -1,16 +1,16 @@
 import Clipboard from 'clipboard'
 
 export function isNull(value) {
-  return (value === null) || (value === undefined)
+  return value === null || value === undefined
 }
 
 export function isNotNull(value) {
-  return (value !== null) && (value !== undefined)
+  return value !== null && value !== undefined
 }
 
 export function isEmptyStr(str) {
   // return (str === undefined) || (!str) || (!/[^\s]/.test(str));
-  return (str === undefined) || (!str && (str !== 0) && (str !== '0')) || (!/[^\s]/.test(str))
+  return str === undefined || (!str && str !== 0 && str !== '0') || !/[^\s]/.test(str)
 }
 
 export const generateId = function() {
@@ -25,7 +25,8 @@ export const deepClone = function(origin) {
   return JSON.parse(JSON.stringify(origin))
 }
 
-export const overwriteObj = function(obj1, obj2) { /* 浅拷贝对象属性，obj2覆盖obj1 */
+export const overwriteObj = function(obj1, obj2) {
+  /* 浅拷贝对象属性，obj2覆盖obj1 */
   // for (let prop in obj2) {
   //   if (obj2.hasOwnProperty(prop)) {
   //     obj1[prop] = obj2[prop]
@@ -49,25 +50,21 @@ export const addWindowResizeHandler = function(handler) {
   }
 }
 
-// const createStyleSheet = function() {
-//   const head = document.head || document.getElementsByTagName('head')[0]
-//   const style = document.createElement('style')
-//   style.type = 'text/css'
-//   head.appendChild(style)
-//   return style.sheet
-// }
-
-export const insertCustomCssToHead = function(cssCode) {
-  const head = document.getElementsByTagName('head')[0]
-  const oldStyle = document.getElementById('vform-custom-css')
+export const insertCustomCssToHead = function(cssCode: any, formId: any = '') {
+  const head: any = document.getElementsByTagName('head')[0]
+  let oldStyle: any = document.getElementById('vform-custom-css')
   if (oldStyle) {
-    head.removeChild(oldStyle) // 应该先清除后插入！！
+    head.removeChild(oldStyle) // 先清除后插入！！
+  }
+  if (formId) {
+    oldStyle = document.getElementById('vform-custom-css' + '-' + formId)
+    !!oldStyle && head.removeChild(oldStyle) // 先清除后插入！！
   }
 
-  const newStyle:any = document.createElement('style')
+  const newStyle: any = document.createElement('style')
   newStyle.type = 'text/css'
   newStyle.rel = 'stylesheet'
-  newStyle.id = 'vform-custom-css'
+  newStyle.id = formId ? 'vform-custom-css' + '-' + formId : 'vform-custom-css'
   try {
     newStyle.appendChild(document.createTextNode(cssCode))
   } catch (ex) {
@@ -77,13 +74,17 @@ export const insertCustomCssToHead = function(cssCode) {
   head.appendChild(newStyle)
 }
 
-export const insertGlobalFunctionsToHtml = function(functionsCode) {
-  const bodyEle = document.getElementsByTagName('body')[0]
-  const oldScriptEle = document.getElementById('v_form_global_functions')
-  !!oldScriptEle && bodyEle.removeChild(oldScriptEle)
+export const insertGlobalFunctionsToHtml = function(functionsCode: any, formId: any = '') {
+  const bodyEle: any = document.getElementsByTagName('body')[0]
+  let oldScriptEle = document.getElementById('zhform_global_functions')
+  !!oldScriptEle && bodyEle.removeChild(oldScriptEle) // 先清除后插入！！
+  if (formId) {
+    oldScriptEle = document.getElementById('zhform_global_functions' + '-' + formId)
+    !!oldScriptEle && bodyEle.removeChild(oldScriptEle) // 先清除后插入！！
+  }
 
   const newScriptEle = document.createElement('script')
-  newScriptEle.id = 'v_form_global_functions'
+  newScriptEle.id = formId ? 'zhform_global_functions' + '-' + formId : 'zhform_global_functions'
   newScriptEle.type = 'text/javascript'
   newScriptEle.innerHTML = functionsCode
   bodyEle.appendChild(newScriptEle)
@@ -97,17 +98,19 @@ export const optionExists = function(optionsObj, optionName) {
   return Object.keys(optionsObj).indexOf(optionName) > -1
 }
 
-export const loadRemoteScript = function(srcPath, callback) { /* 加载远程js，加载成功后执行回调函数*/
+export const loadRemoteScript = function(srcPath, callback) {
+  /* 加载远程js，加载成功后执行回调函数*/
   const sid = encodeURIComponent(srcPath)
   const oldScriptEle = document.getElementById(sid)
 
   if (!oldScriptEle) {
-    let s:any = document.createElement('script')
+    let s: any = document.createElement('script')
     s.src = srcPath
     s.id = sid
     document.body.appendChild(s)
 
-    s.onload = s.onreadystatechange = function(_, isAbort) { /* 借鉴自ace.js */
+    s.onload = s.onreadystatechange = function(_, isAbort) {
+      /* 借鉴自ace.js */
       if (isAbort || !s.readyState || s.readyState === 'loaded' || s.readyState === 'complete') {
         s = s.onload = s.onreadystatechange = null
         if (!isAbort) {
@@ -118,83 +121,86 @@ export const loadRemoteScript = function(srcPath, callback) { /* 加载远程js�
   }
 }
 
-export function traverseFieldWidgets(widgetList, handler, parent = null) {
-  widgetList.forEach((w) => {
+export function traverseFieldWidgets(widgetList, handler) {
+  widgetList.map((w) => {
     if (w.formItemFlag) {
-      handler(w, parent)
+      handler(w)
     } else if (w.type === 'grid') {
-      w.cols.forEach((col) => {
-        traverseFieldWidgets(col.widgetList, handler, w)
+      w.cols.map((col) => {
+        traverseFieldWidgets(col.widgetList, handler)
       })
     } else if (w.type === 'table') {
-      w.rows.forEach((row) => {
-        row.cols.forEach((cell) => {
-          traverseFieldWidgets(cell.widgetList, handler, w)
+      w.rows.map((row) => {
+        row.cols.map((cell) => {
+          traverseFieldWidgets(cell.widgetList, handler)
         })
       })
     } else if (w.type === 'tab') {
-      w.tabs.forEach((tab) => {
-        traverseFieldWidgets(tab.widgetList, handler, w)
+      w.tabs.map((tab) => {
+        traverseFieldWidgets(tab.widgetList, handler)
       })
     } else if (w.type === 'sub-form') {
-      traverseFieldWidgets(w.widgetList, handler, w)
-    } else if (w.category === 'container') { // 自定义容器
-      traverseFieldWidgets(w.widgetList, handler, w)
+      traverseFieldWidgets(w.widgetList, handler)
+    } else if (w.category === 'container') {
+      // 自定义容器
+      traverseFieldWidgets(w.widgetList, handler)
     }
   })
 }
 
 export function traverseContainWidgets(widgetList, handler) {
-  widgetList.forEach((w) => {
+  widgetList.map((w) => {
     if (w.category === 'container') {
       handler(w)
     }
 
     if (w.type === 'grid') {
-      w.cols.forEach((col) => {
+      w.cols.map((col) => {
         traverseContainWidgets(col.widgetList, handler)
       })
     } else if (w.type === 'table') {
-      w.rows.forEach((row) => {
-        row.cols.forEach((cell) => {
+      w.rows.map((row) => {
+        row.cols.map((cell) => {
           traverseContainWidgets(cell.widgetList, handler)
         })
       })
     } else if (w.type === 'tab') {
-      w.tabs.forEach((tab) => {
+      w.tabs.map((tab) => {
         traverseContainWidgets(tab.widgetList, handler)
       })
     } else if (w.type === 'sub-form') {
       traverseContainWidgets(w.widgetList, handler)
-    } else if (w.category === 'container') { // 自定义容器
+    } else if (w.category === 'container') {
+      // 自定义容器
       traverseContainWidgets(w.widgetList, handler)
     }
   })
 }
 
 export function traverseAllWidgets(widgetList, handler) {
-  widgetList.forEach((w) => {
+  widgetList.map((w) => {
     handler(w)
 
     if (w.type === 'grid') {
-      w.cols.forEach((col) => {
+      w.cols.map((col) => {
         handler(col)
         traverseAllWidgets(col.widgetList, handler)
       })
     } else if (w.type === 'table') {
-      w.rows.forEach((row) => {
-        row.cols.forEach((cell) => {
+      w.rows.map((row) => {
+        row.cols.map((cell) => {
           handler(cell)
           traverseAllWidgets(cell.widgetList, handler)
         })
       })
     } else if (w.type === 'tab') {
-      w.tabs.forEach((tab) => {
+      w.tabs.map((tab) => {
         traverseAllWidgets(tab.widgetList, handler)
       })
     } else if (w.type === 'sub-form') {
       traverseAllWidgets(w.widgetList, handler)
-    } else if (w.category === 'container') { // 自定义容器
+    } else if (w.category === 'container') {
+      // 自定义容器
       traverseAllWidgets(w.widgetList, handler)
     }
   })
@@ -238,7 +244,8 @@ export function traverseFieldWidgetsOfContainer(con, handler) {
     con.widgetList.forEach((cw) => {
       handleWidgetForTraverse(cw, handler)
     })
-  } else if (con.category === 'container') { // 自定义容器
+  } else if (con.category === 'container') {
+    // 自定义容器
     con.widgetList.forEach((cw) => {
       handleWidgetForTraverse(cw, handler)
     })
@@ -248,11 +255,11 @@ export function traverseFieldWidgetsOfContainer(con, handler) {
 /**
  * 获取所有字段组件
  * @param widgetList
- * @return {[]}
+ * @returns {[]}
  */
 export function getAllFieldWidgets(widgetList) {
-  const result:any = []
-  const handlerFn = (w) => {
+  const result: any = []
+  const handlerFn: any = (w) => {
     result.push({
       type: w.type,
       name: w.options.name,
@@ -267,11 +274,11 @@ export function getAllFieldWidgets(widgetList) {
 /**
  * 获取所有容器组件
  * @param widgetList
- * @return {[]}
+ * @returns {[]}
  */
 export function getAllContainerWidgets(widgetList) {
-  const result:any = []
-  const handlerFn = (w) => {
+  const result: any = []
+  const handlerFn: any = (w) => {
     result.push({
       type: w.type,
       name: w.options.name,
@@ -284,7 +291,7 @@ export function getAllContainerWidgets(widgetList) {
 }
 
 export function copyToClipboard(content, clickEvent, $message, successMsg, errorMsg) {
-  const clipboard:any = new Clipboard(clickEvent.target, {
+  const clipboard: any = new Clipboard(clickEvent.target, {
     text: () => content,
   })
 
@@ -304,7 +311,7 @@ export function copyToClipboard(content, clickEvent, $message, successMsg, error
 export function getQueryParam(variable) {
   const query = window.location.search.substring(1)
   const vars = query.split('&')
-  for (let i=0; i<vars.length; i++) {
+  for (let i = 0; i < vars.length; i++) {
     const pair = vars[i].split('=')
     if (pair[0] == variable) {
       return pair[1]

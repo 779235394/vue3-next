@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2022-02-25 17:48:47
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-03-09 11:20:00
+ * @LastEditTime: 2022-03-11 11:19:51
 -->
 <template>
   <el-container class="main-container">
@@ -13,33 +13,24 @@
     <el-container class="center-layout-container">
       <el-main class="form-widget-main">
         <el-scrollbar class="container-scroll-bar">
-          <formWidget :designer="designer" :form-config="designer.formConfig">
-          </formWidget>
+          <formWidget :designer="designer" :form-config="designer.formConfig"></formWidget>
         </el-scrollbar>
       </el-main>
     </el-container>
-
-    <!-- <div class="dragList-list2">
-      <h3 style="text-align:center">拖动至此处</h3>
-      <Draggable tag="transition-group" :component-data="{name:'fade'}" :list="list1" item-key="id"  :group="{name: 'article',pull:''}"  :disabled="false"  @start="start2" @end="end2" class="dragArea2" >
-        <template #item="{ element,index }" >
-          <div class="list-complete-item2">
-            <div class="list-complete-item-handle">{{element.name}}</div>
-            <div>
-                <el-icon>
-                    <delete @click="handleDel(index, element.id)"></delete>
-                </el-icon>
-            </div>
-          </div>
-        </template>
-      </Draggable>
-    </div> -->
+    <el-aside>
+      <setting-panel
+        :designer="designer"
+        :selected-widget="designer.selectedWidget"
+        :form-config="designer.formConfig"
+        @edit-event-handler="editHangler"
+      />
+    </el-aside>
   </el-container>
 </template>
 
 <script setup lang="ts">
 import { createDesigner } from './designer'
-const designer:any = ref(createDesigner())
+const designer: any = ref(createDesigner())
 const designerConfig = ref({
   type: Object,
   default: () => {
@@ -61,13 +52,17 @@ const designerConfig = ref({
     }
   },
 })
+const editHangler = (eventName, eventParams) => {
+  console.log(eventName, eventParams)
+}
 provide('getDesignerConfig', designerConfig)
 </script>
 
 <style lang="scss" scoped>
 .el-container.main-container {
   height: 100%;
-  :deep(aside) {  /* 防止aside样式被外部样式覆盖！！ */
+  :deep(aside) {
+    /* 防止aside样式被外部样式覆盖！！ */
     margin: 0;
     padding: 0;
     background: inherit;
@@ -78,8 +73,8 @@ provide('getDesignerConfig', designerConfig)
   }
   .el-container.center-layout-container {
     min-width: 680px;
-    border-left: 2px dotted #EBEEF5;
-    border-right: 2px dotted #EBEEF5;
+    border-left: 2px dotted #ebeef5;
+    border-right: 2px dotted #ebeef5;
     .el-main.form-widget-main {
       padding: 0 !important;
       position: relative;

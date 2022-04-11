@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2022-03-09 11:29:11
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-03-10 16:49:46
+ * @LastEditTime: 2022-03-11 14:21:42
  */
 import { deepClone } from '@/utils/util'
 import FormValidators from '@/utils/validate'
@@ -129,7 +129,6 @@ export default function(newObj) {
           delete refList[oldRefName]
         }
         refList[field.options.name] = proxy
-        console.log(refList, 'refList', proxy)
       }
     }
   }

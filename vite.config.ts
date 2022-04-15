@@ -3,7 +3,7 @@
  * @Author: huangzihong
  * @Date: 2022-02-09 15:37:04
  * @LastEditors: huangzihong
- * @LastEditTime: 2022-03-10 18:15:48
+ * @LastEditTime: 2022-04-15 17:56:44
  */
 import { defineConfig } from 'vite'
 import path from 'path'
@@ -61,7 +61,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         javascriptEnabled: true,
-        additionalData: '@import "@/styles/BaseStyle.scss";',
+        additionalData: '@import "@/styles/base-style.scss";',
       },
     },
   },

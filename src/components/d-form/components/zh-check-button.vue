@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion:
+ * @Author: huangzihong
+ * @Date: 2021-03-15 23:38:42
+ * @LastEditors: huangzihong
+ * @LastEditTime: 2022-02-25 14:42:53
+-->
+<template>
+  <el-checkbox-group
+      :min="item.min"
+      :max="item.max"
+      v-model="formData[item.prop]"
+  >
+    <el-checkbox-button
+        v-for="option in options"
+        :key="option.value ? option.value : option"
+        :label="option.value ? option.value : option"
+        :disabled="item.disabled"
+        :style="item.style"
+        @change="change"
+    >
+      {{ option.label ? option.label : option }}
+    </el-checkbox-button>
+  </el-checkbox-group>
+</template>
+
+<script setup lang="ts">
+const emits = defineEmits(['event'])
+const { item, formData } = defineProps({
+  item: { type: Object, default: () => {} },
+  formData: { type: Object, default: () => {} },
+})
+
+onBeforeMount(() => {
+  if (!formData[item.prop]) {
+    formData[item.prop] = []
+  }
+})
+const change = () => {
+  emits('event', {
+    type: 'change',
+    prop: item.prop,
+    value: formData[item.prop],
+  })
+}
+const options = computed(() => {
+  if (item.options instanceof Array) {
+    return item.options
+  } else {
+    const list = item.options.split(',')
+    return list.map((item) => {
+      return { value: item, label: item }
+    })
+  }
+})
+</script>
+
+<style scoped>
+
+</style>
